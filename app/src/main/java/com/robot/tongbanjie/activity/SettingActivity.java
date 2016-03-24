@@ -18,7 +18,10 @@ import com.robot.tongbanjie.widget.TitleBarView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-
+/**
+ *
+ * 设置界面
+ */
 public class SettingActivity extends BaseActivity implements OnClickListener {
 	private static final String TAG = SettingActivity.class.getSimpleName();
 	@Bind(R.id.titlebar)
