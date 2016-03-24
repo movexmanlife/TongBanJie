@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="phone_number_max_cnt">11</integer>
+    <integer name="login_pwd_max_cnt">16</integer>
+    <integer name="login_pwd_min_cnt">6</integer>
+</resources>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="320.0dip"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/shape_bg_dialog"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36.0dip"
+        android:gravity="center_horizontal"
+        android:text="您的支持，是我们不断进步的动力"
+        android:textColor="@color/black_common"
+        android:textSize="@dimen/common_font_size_small" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="28.0dip"
+        android:paddingTop="28.0dip">
+
+        <Button
+            android:id="@+id/goto_store_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="45.0dip"
+            android:layout_marginLeft="@dimen/common_view_largest_margin"
+            android:layout_marginRight="@dimen/common_view_largest_margin"
+            android:background="@drawable/selector_redbtn"
+            android:text="点个赞，鼓励一下"
+            android:textColor="@color/white"
+            android:textSize="@dimen/common_font_size_middle" />
+
+        <Button
+            android:id="@+id/goto_feedback_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="45.0dip"
+            android:layout_marginLeft="@dimen/common_view_largest_margin"
+            android:layout_marginRight="@dimen/common_view_largest_margin"
+            android:layout_marginTop="18.0dip"
+            android:background="@drawable/selector_whitebtn"
+            android:text="不中意，我要吐槽"
+            android:textColor="@color/red_pres"
+            android:textSize="@dimen/common_font_size_middle" />
+
+        <Button
+            android:id="@+id/cancel_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="45.0dip"
+            android:layout_marginLeft="@dimen/common_view_largest_margin"
+            android:layout_marginRight="@dimen/common_view_largest_margin"
+            android:layout_marginTop="18.0dip"
+            android:background="@drawable/selector_greybtn"
+            android:text="算了，晚点再来评价"
+            android:textColor="@color/gray_light4"
+            android:textSize="@dimen/common_font_size_middle" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,73 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/content_backgroud"
+    android:orientation="vertical"
+    tools:context="com.robot.tongbanjie.activity.SettingActivity">
+
+    <com.robot.tongbanjie.widget.TitleBarView
+        android:id="@+id/titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </com.robot.tongbanjie.widget.TitleBarView>
+
+    <com.robot.tongbanjie.widget.CommonItem
+        android:id="@+id/my_balance_auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/common_item_sel"
+        android:paddingBottom="15dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="10dp"
+        android:paddingTop="15dp" />
+
+    <View
+        android:id="@+id/my_balance_divider"
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+    
+    <com.robot.tongbanjie.widget.CommonItem
+        android:id="@+id/my_balance_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/common_item_sel"
+        android:paddingBottom="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="10dp"
+        android:paddingTop="20dp" />
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.robot.tongbanjie.widget.CommonItem
+            android:id="@+id/my_balance_charge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/common_item_sel"
+            android:paddingBottom="15dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"
+            android:paddingTop="15dp" />
+
+        <include
+            layout="@layout/view_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginLeft="20dp" />
+
+        <com.robot.tongbanjie.widget.CommonItem
+            android:id="@+id/my_balance_roll_out"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/common_item_sel"
+            android:paddingBottom="15dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"
+            android:paddingTop="15dp" />
+    </LinearLayout>
+    
+</LinearLayout>

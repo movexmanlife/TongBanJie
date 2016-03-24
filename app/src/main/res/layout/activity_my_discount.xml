@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/content_backgroud"
+    android:orientation="vertical">
+
+    <com.robot.tongbanjie.widget.TitleBarView
+        android:id="@+id/titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <info.hoang8f.android.segmented.SegmentedGroup xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/segmented2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="horizontal"
+        segmentedgroup:sc_border_width="1.5dp"
+        segmentedgroup:sc_corner_radius="5dp">
+
+        <RadioButton
+            android:id="@+id/my_useable_ticket"
+            style="@style/SegmentRadioButton"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:text="可用卡券"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/my_history_ticket"
+            style="@style/SegmentRadioButton"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:text="历史卡券"
+            android:textSize="16sp" />
+    </info.hoang8f.android.segmented.SegmentedGroup>
+
+</LinearLayout>

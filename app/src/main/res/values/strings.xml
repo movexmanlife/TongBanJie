@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TongBanJie</string>
+    <string name="action_settings">Settings</string>
+    <string name="versionName">版本号：%1$s</string>
+    <string name="empty"></string>
+
+    <string name="contact">您可以用微信"添加朋友"中的"搜号码"功能搜索"itongbanjie"来添加我们,直接与我们对话,我们也会通过微信推荐给您较热门的理财产品.</string>
+
+    <string name="risk1">1、在购买铜板街理财产品之前，请您先根据自身实际情况认真填写本问卷，一边我们在了解您的风险承受能力的基础上界定您的风险类型，进而帮助您根据自身的风险承受能力选择合适的理财产品。</string>
+    <string name="risk2">2、如果您的有关情况发生重大改变或距离上次填写时间超过一年，请重新填写本问卷。</string>
+    <string name="risk3">3、如果您提供的资料不准确、不完整，或是您选择不填写本问卷，则可能对您投资风险承受能力评估以及理财产品推荐带来不利影响，铜板街对因此产生的所有后果不承担任何责任。</string>
+    <string name="risk4">4、本问卷包括5个问题，每个问题根据您自身的实际情况只能选择一个选项。</string>
+    <string name="risk5">5、本问卷的最终解释权归铜板街所有。您若对本问卷内容有任何疑问，请向铜板街客服咨询。</string>
+
+    <string name="question1">1、您的生活各项开支（除投资外）占总收入的多少？</string>
+    <string name="question2">2、您的投资金额相当于年收入的几倍？</string>
+    <string name="question3">3、作为投资者，和其他人相比，您怎么评估您的投资经验？</string>
+    <string name="question4">4、您的投资预期是？</string>
+    <string name="question5">5、您认为自己能承受的最大投资损失是多少？</string>
+
+</resources>

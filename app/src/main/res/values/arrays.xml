@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="question1">
+        <item>0</item>
+        <item>0-5%</item>
+        <item>5-10%</item>
+    </string-array>
+    <string-array name="question2">
+        <item>低于0.5倍</item>
+        <item>0.5-2倍</item>
+        <item>2倍以上</item>
+    </string-array>
+    <string-array name="question3">
+        <item>完全没做过投资</item>
+        <item>一般水平</item>
+        <item>非常有经验</item>
+    </string-array>
+    <string-array name="question4">
+        <item>资产保值，我不愿意承担任何风险</item>
+        <item>尽可能保证本金安全，不在乎收益率比较低</item>
+        <item>产生较多的收益，可以承担一定的投资风险</item>
+    </string-array>
+    <string-array name="question5">
+        <item>0</item>
+        <item>0-5%</item>
+        <item>5-10%</item>
+    </string-array>
+</resources>

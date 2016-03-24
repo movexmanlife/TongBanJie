@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="divider_color">#e6e6e6</color>
+    <color name="white">#ffffff</color>
+    <color name="invest_product_list">#d9d9d9</color>
+    <color name="transparent">#00000000</color>
+    <color name="black">#000000</color>
+    <color name="common_item_pressed_color">#ffd9d9d9</color>
+    <color name="content_backgroud">#f2f2f2</color>
+    <color name="add_bank_card_color">#4169E1</color>
+    <color name="lightgrey">#d3d3d3</color>
+    <color name="bankselecedcolor">#f2f2f2</color>
+    <color name="dark_gray">#585757</color>
+    <color name="my_assert_titlebar_bg">#f95849</color>
+
+    <color name="tab_txt_selected_color">#d1564f</color>
+    <color name="tab_txt_normal_color">#616977</color>
+    <color name="phone_number_tips_txt_color">#ff9933</color>
+    <color name="hint_txt_color">#b5b5b5</color>
+    <color name="forget_pwd_txt_color">#6699cc</color>
+    <color name="percent70">#b3000000</color>  <!--透明度70%-->
+    <color name="percent80">#cc000000</color>  <!--透明度80%-->
+    <color name="percent85">#d9000000</color>  <!--透明度85%-->
+    <color name="percent90">#e6000000</color>  <!--透明度90%-->
+
+    <color name="radio_button_selected_color">#ff6699cc</color>
+    <color name="radio_button_unselected_color">@android:color/transparent</color>
+    <color name="black_common">#ff434343</color>
+    <color name="red_pres">#ffd1564f</color>
+    <color name="gray_light4">#ff999999</color>
+    <color name="dialog_tips_bg">#eeeeee</color>
+    <color name="dialog_tips_btn">#d6d6d6</color>
+    <color name="dialog_tips_line">#c6c6c6</color>
+    <color name="dialog_tips_title_txt">#434343</color>
+    <color name="dialog_tips_content_txt">#898989</color>
+    <color name="dialog_tips_positive_btn_txt">#6699cc</color>
+    <color name="dialog_tips_negative_btn_txt">#c34949</color>
+    <color name="expand_list_view_detail_bg">#f2f2f2</color>
+    <color name="question_category">#f7f7f7</color>
+    <color name="red_bg">#f6534c</color>
+    <color name="red_bg_deep">#e15041</color>
+    <color name="total_account">#fccbca</color>
+    <color name="total_account_tips">#fcc7c6</color>
+    <color name="my_balance">#feebe6</color>
+
+    <color name="txt_red">#d1564f</color>
+    <color name="txt_gray">#999999</color>
+
+</resources>

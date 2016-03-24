@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/content_backgroud"
+    android:orientation="vertical">
+    <com.robot.tongbanjie.widget.TitleBarView
+        android:id="@+id/titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <info.hoang8f.android.segmented.SegmentedGroup xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/segmented2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="horizontal"
+        segmentedgroup:sc_border_width="1.5dp"
+        segmentedgroup:sc_corner_radius="5dp">
+
+        <RadioButton
+            android:id="@+id/my_bank_card"
+            style="@style/SegmentRadioButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingBottom="7dp"
+            android:paddingTop="7dp"
+            android:text="我的银行卡"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/fund_bank_card"
+            style="@style/SegmentRadioButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingBottom="7dp"
+            android:paddingTop="7dp"
+            android:text="基金专项银行卡"
+            android:textSize="16sp" />
+    </info.hoang8f.android.segmented.SegmentedGroup>
+
+    <com.robot.tongbanjie.widget.CommonItem
+        android:id="@+id/bank_card_manager_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/bg_item"
+        android:paddingBottom="15dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="10dp"
+        android:paddingTop="15dp" />
+
+</LinearLayout>

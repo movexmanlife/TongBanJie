@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dialog_tips_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_tips_bg"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/dialog_tips_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:textColor="@color/dialog_tips_title_txt"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/dialog_tips_content_msg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:textColor="@color/dialog_tips_content_txt"
+        android:textSize="16sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="10dp"
+        android:background="@color/dialog_tips_line" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/dialog_tips_negative_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="50dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@drawable/dialog_tips_negative_btn_sel"
+            android:gravity="center"
+            android:textColor="@color/dialog_tips_negative_btn_txt"
+            android:textSize="18sp" />
+
+        <View
+            android:id="@+id/dialog_tips_divider_left_line"
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:minHeight="50dp"
+            android:background="@color/dialog_tips_line" />
+
+        <Button
+            android:id="@+id/dialog_tips_middle_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="50dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@drawable/dialog_tips_middle_btn_sel"
+            android:gravity="center"
+            android:textColor="@color/dialog_tips_positive_btn_txt"
+            android:textSize="18sp" />
+
+        <View
+            android:id="@+id/dialog_tips_divider_right_line"
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:minHeight="50dp"
+            android:background="@color/dialog_tips_line" />
+
+        <Button
+            android:id="@+id/dialog_tips_positive_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="50dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@drawable/dialog_tips_positive_btn_sel"
+            android:gravity="center"
+            android:textColor="@color/dialog_tips_positive_btn_txt"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+</LinearLayout>
