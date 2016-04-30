@@ -36,8 +36,8 @@
     <color name="dialog_tips_line">#c6c6c6</color>
     <color name="dialog_tips_title_txt">#434343</color>
     <color name="dialog_tips_content_txt">#898989</color>
-    <color name="dialog_tips_positive_btn_txt">#6699cc</color>
-    <color name="dialog_tips_negative_btn_txt">#c34949</color>
+    <color name="dialog_tips_negative_btn_txt">#6699cc</color>
+    <color name="dialog_tips_positive_btn_txt">#c34949</color>
     <color name="expand_list_view_detail_bg">#f2f2f2</color>
     <color name="question_category">#f7f7f7</color>
     <color name="red_bg">#f6534c</color>
@@ -48,5 +48,24 @@
 
     <color name="txt_red">#d1564f</color>
     <color name="txt_gray">#999999</color>
+    <color name="red_light10">#fff95749</color>
+    <color name="red_light5">#ffd1564f</color>
+    <color name="vertical_divider_color">#ffefefef</color>
+    <color name="table_divider_color">#cecece</color>
 
+    <color name="pink_light1">#e6fff3f0</color>
+    <color name="black_light1">#ff333333</color>
+    <color name="gray_bg_global">#fff2f2f2</color>
+    <color name="tb_check_trade_record_color">#ffff663f</color>
+    <color name="gray_light">#ff707070</color>
+    <color name="yellow_chocolate">#fff17336</color>
+    <color name="gray_light9">#fff9f9f9</color>
+    <color name="assets_detail_dark">#ff666666</color>
+    <color name="black_light2">#ff666666</color>
+
+
+    <color name="line_color">#ff6740</color>
+    <color name="slash_line_color">#ff663f</color>
+    <color name="chart_fill_color">#ffece7</color>
+    <color name="black_overlay">#60000000</color>
 </resources>

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/gray_bg_global"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_info_about_tongbao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/common_item_sel"
+        android:paddingBottom="@dimen/more_item_menu_padding_top"
+        android:paddingLeft="@dimen/more_item_menu_padding_left"
+        android:paddingRight="@dimen/more_item_menu_padding_left"
+        android:paddingTop="@dimen/more_item_menu_padding_top">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="铜宝产品说明书"
+            android:textColor="@color/assets_detail_dark"
+            android:textSize="@dimen/common_font_size_middle" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:text="查看详情"
+            android:textColor="#ff999999"
+            android:textSize="@dimen/common_font_size_smaller" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="0x0"
+            android:src="@mipmap/icon_triangle_arrow" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_know_about_tongbao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/common_item_sel"
+        android:paddingBottom="@dimen/more_item_menu_padding_top"
+        android:paddingLeft="@dimen/more_item_menu_padding_left"
+        android:paddingRight="@dimen/more_item_menu_padding_left"
+        android:paddingTop="@dimen/more_item_menu_padding_top">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="铜宝资产配置"
+            android:textColor="@color/assets_detail_dark"
+            android:textSize="@dimen/common_font_size_middle" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:text="查看详情"
+            android:textColor="#ff999999"
+            android:textSize="@dimen/common_font_size_smaller" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="0x0"
+            android:src="@mipmap/icon_triangle_arrow" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_know_about_tongbao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/myasset_emptymsg_margin_top"
+        android:paddingTop="@dimen/myasset_emptymsg_margin_top">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1.0"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/icon_tb_safe"
+                android:contentDescription="0x0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/financing_item_padding"
+                android:text="安全"
+                android:textColor="@color/black_light2"
+                android:textSize="@dimen/common_font_size_small" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/common_view_small_larger_padding"
+                android:gravity="center_horizontal"
+                android:text="由银行和PICC共同保障"
+                android:textColor="@color/gray_light4"
+                android:textSize="@dimen/common_font_size_smaller" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="3dp"
+            android:layout_marginTop="3dp"
+            android:background="#ffebebeb" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1.0"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/icon_tb_profit"
+                android:contentDescription="0x0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/financing_item_padding"
+                android:text="收益"
+                android:textColor="@color/black_light2"
+                android:textSize="@dimen/common_font_size_small" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/common_view_small_larger_padding"
+                android:gravity="center_horizontal"
+                android:text="按日结算轻松便捷"
+                android:textColor="@color/gray_light4"
+                android:textSize="@dimen/common_font_size_smaller" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="3dp"
+            android:layout_marginTop="3dp"
+            android:background="#ffebebeb" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1.0"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/icon_tb_buy"
+                android:contentDescription="0x0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/financing_item_padding"
+                android:text="购买"
+                android:textColor="@color/black_light2"
+                android:textSize="@dimen/common_font_size_small" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/common_view_small_larger_padding"
+                android:gravity="center_horizontal"
+                android:text="投资无限制T+0起息"
+                android:textColor="@color/gray_light4"
+                android:textSize="@dimen/common_font_size_smaller" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="3dp"
+            android:layout_marginTop="3dp"
+            android:background="#ffebebeb" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1.0"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/icon_tb_cash"
+                android:contentDescription="0x0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/financing_item_padding"
+                android:text="取现"
+                android:textColor="@color/black_light2"
+                android:textSize="@dimen/common_font_size_small" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/common_view_small_larger_padding"
+                android:gravity="center_horizontal"
+                android:text="随时取现最快T+0到账"
+                android:textColor="@color/gray_light4"
+                android:textSize="@dimen/common_font_size_smaller" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

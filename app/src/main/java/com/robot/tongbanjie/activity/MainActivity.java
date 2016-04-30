@@ -1,5 +1,7 @@
 package com.robot.tongbanjie.activity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -7,6 +9,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 import android.util.SparseIntArray;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -17,6 +20,12 @@ import com.robot.tongbanjie.fragment.HomeFragment;
 import com.robot.tongbanjie.fragment.MoreFragment;
 import com.robot.tongbanjie.fragment.MyAssertFragment;
 import com.robot.tongbanjie.fragment.ProductFragment;
+import com.robot.tongbanjie.service.NetworkStateService;
+import com.robot.tongbanjie.widget.BaseTipsView;
+import com.robot.tongbanjie.widget.ShowMemberTipsView;
+import com.robot.tongbanjie.widget.ShowMoreTipsView;
+
+import java.security.KeyRep;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -67,6 +76,13 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     LinearLayout layoutMyAssert;
     @Bind(R.id.layout_more)
     LinearLayout layoutMore;
+    private ShowMoreTipsView mShowMoreTipsView;
+    private ShowMemberTipsView mShowMemberTipsView;
+
+    public static void start(Context context) {
+        Intent intent = new Intent(context, MainActivity.class);
+        context.startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +98,83 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
         initData();
         setListener();
+        showMoreTipsView();
+        Intent intent  = new Intent(this, NetworkStateService.class);
+        startService(intent);
+    }
+
+    /**
+     * 更多引导
+     */
+    private void showMoreTipsView() {
+        if (mShowMoreTipsView == null) {
+            mShowMoreTipsView = new ShowMoreTipsView(this);
+        }
+        mShowMoreTipsView.setOnCloseListener(new ShowMoreTipsView.OnCloseListener() {
+            @Override
+            public void onClose(BaseTipsView baseTipsView) {
+                baseTipsView.dismiss(MainActivity.this);
+            }
+        });
+        mShowMoreTipsView.setOnSureListener(new ShowMoreTipsView.OnSureListener() {
+            @Override
+            public void onSure(BaseTipsView baseTipsView) {
+                baseTipsView.dismiss(MainActivity.this);
+                layoutMore.performClick();
+                showMemberTipsView();
+            }
+        });
+        mShowMoreTipsView.show(this);
+    }
+
+    /**
+     * 会员引导
+     */
+    private void showMemberTipsView() {
+        if (mShowMemberTipsView == null) {
+            mShowMemberTipsView = new ShowMemberTipsView(this);
+        }
+        mShowMemberTipsView.setOnCloseListener(new ShowMemberTipsView.OnCloseListener() {
+            @Override
+            public void onClose(BaseTipsView baseTipsView) {
+                baseTipsView.dismiss(MainActivity.this);
+            }
+        });
+        mShowMemberTipsView.setOnSureListener(new ShowMemberTipsView.OnSureListener() {
+            @Override
+            public void onSure(BaseTipsView baseTipsView) {
+                baseTipsView.dismiss(MainActivity.this);
+            }
+        });
+        mShowMemberTipsView.show(this);
+    }
+
+    /**
+     *  重写返回键
+     * @param keyCode
+     * @param event
+     * @return
+     */
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            /**
+             * 有引导提示的时候，将引导去掉
+             */
+            if (mShowMoreTipsView != null) {
+                if (mShowMoreTipsView.isShowing()) {
+                    mShowMoreTipsView.dismiss(this);
+                    return true;
+                }
+            }
+            if (mShowMemberTipsView != null) {
+                if (mShowMemberTipsView.isShowing()) {
+                    mShowMemberTipsView.dismiss(this);
+                    return true;
+                }
+            }
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     private void initData() {
@@ -111,6 +204,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         } else if (TextUtils.equals(FRAGMENT_TAG_MORE, mFragmentCurrentTag)) {
             layoutMore.performClick();
         }
+
     }
 
     @Override
@@ -222,9 +316,9 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         FragmentTransaction transaction = manager.beginTransaction();
         mHomeFragment = (HomeFragment) manager.findFragmentByTag(FRAGMENT_TAG_HOME);
         transaction.hide(mHomeFragment);
-        mMyAssertFragment = (MyAssertFragment) manager.findFragmentByTag(FRAGMENT_TAG_PRODUCT);
+        mMyAssertFragment = (MyAssertFragment) manager.findFragmentByTag(FRAGMENT_TAG_MY_ASSERT);
         transaction.hide(mMyAssertFragment);
-        mProductFragment = (ProductFragment) manager.findFragmentByTag(FRAGMENT_TAG_MY_ASSERT);
+        mProductFragment = (ProductFragment) manager.findFragmentByTag(FRAGMENT_TAG_PRODUCT);
         transaction.hide(mProductFragment);
         mMoreFragment = (MoreFragment) manager.findFragmentByTag(FRAGMENT_TAG_MORE);
         transaction.hide(mMoreFragment);
@@ -239,5 +333,13 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             this.img = img;
             this.txt = txt;
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        Intent intent  = new Intent(this, NetworkStateService.class);
+        stopService(intent);
     }
 }

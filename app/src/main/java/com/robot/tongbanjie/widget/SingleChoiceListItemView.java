@@ -32,9 +32,13 @@ public class SingleChoiceListItemView extends LinearLayout implements Checkable 
 
     private void init() {
         LayoutInflater inflater = LayoutInflater.from(getContext());
-        View roobt = inflater.inflate(R.layout.list_list_single_choice, this, false);
-        nameTxt = (TextView) roobt.findViewById(R.id.txt);
-        selectedCheckBox = (CheckBox) roobt.findViewById(R.id.checkbox);
+        View root = inflater.inflate(R.layout.list_list_single_choice, this, true);
+        nameTxt = (TextView) root.findViewById(R.id.txt);
+        selectedCheckBox = (CheckBox) root.findViewById(R.id.checkbox);
+    }
+
+    public TextView getNameView() {
+        return nameTxt;
     }
 
     public void setName(String text) {
@@ -51,9 +55,9 @@ public class SingleChoiceListItemView extends LinearLayout implements Checkable 
         selectedCheckBox.setChecked(checked);
         //根据是否选中来选择不同的背景图片
         if (checked) {
-            selectedCheckBox.setBackgroundResource(R.drawable.tick);
+            nameTxt.setTextColor(getResources().getColor(R.color.txt_red));
         } else {
-            selectedCheckBox.setBackgroundDrawable(null);
+            nameTxt.setTextColor(getResources().getColor(R.color.txt_gray));
         }
     }
  

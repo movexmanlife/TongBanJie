@@ -105,7 +105,7 @@
                 android:background="@null"
                 android:paddingBottom="5dip"
                 android:scaleType="matrix"
-                android:text="投资"
+                android:text="财富"
                 android:textColor="#000000"
                 android:textSize="12sp" />
         </LinearLayout>

@@ -14,7 +14,8 @@ import com.robot.tongbanjie.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InputPasswordView extends LinearLayout {
+public class InputPasswordView extends LinearLayout implements SafeKeyboardView.OnAddListener,
+        SafeKeyboardView.OnDeleteListener, SafeKeyboardView.OnConfirmListener{
     private static final int PASSWORD_CNT = 6;
     private static final int DEFAULT_TOP_BOTTOM_BORDER_HEIGHT = 1;
     private static final int DEFAULT_MIDDLE_BORDER_WIDTH = 1;
@@ -45,17 +46,17 @@ public class InputPasswordView extends LinearLayout {
 
     public InputPasswordView(Context context) {
         super(context);
-        init(context);
+        initView(context);
     }
 
     public InputPasswordView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        init(context);
+        initView(context);
     }
 
     public InputPasswordView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(context);
+        initView(context);
     }
 
     @Override
@@ -63,12 +64,13 @@ public class InputPasswordView extends LinearLayout {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
-    private void init(Context context) {
+    private void initView(Context context) {
         this.mContext = context;
         setOrientation(VERTICAL);
         addTopBorder();
         addPasswordViewAndMiddleBorder();
         addBottomBorder();
+        setListener();
     }
 
     private void addTopBorder() {
@@ -127,6 +129,17 @@ public class InputPasswordView extends LinearLayout {
                 pwd.setVisibility(View.INVISIBLE);
             }
         }
+    }
+
+    private void setListener() {
+//        setFocusable(true);
+//        setFocusableInTouchMode(true);
+        setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                requestFocus();
+            }
+        });
     }
 
     private void clearAllPasswdView() {
@@ -235,6 +248,21 @@ public class InputPasswordView extends LinearLayout {
             return;
         }
         super.onRestoreInstanceState(state);
+    }
+
+    @Override
+    public void onAdd(View view, String number) {
+        add(number);
+    }
+
+    @Override
+    public void onConfirm(View view) {
+
+    }
+
+    @Override
+    public void onDelete(View view) {
+        delete();
     }
 
     public interface OnPasswdEmptyListener {

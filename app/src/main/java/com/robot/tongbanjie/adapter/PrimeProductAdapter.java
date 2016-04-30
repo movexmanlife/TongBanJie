@@ -6,6 +6,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.robot.tongbanjie.R;
@@ -13,6 +16,7 @@ import com.robot.tongbanjie.entity.PrimeProduct;
 
 import java.util.List;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class PrimeProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
@@ -26,6 +30,7 @@ public class PrimeProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         this.mContext = context;
         this.mLayoutInflater = LayoutInflater.from(context);
         this.mDatas = datas;
+
     }
 
     @Override
@@ -43,6 +48,14 @@ public class PrimeProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof ProductViewHolder) {
             ProductViewHolder productViewHolder = (ProductViewHolder) holder;
+            PrimeProduct product = mDatas.get(position);
+            if (product.isNowBuy) {
+                productViewHolder.mButton.setVisibility(View.VISIBLE);
+                productViewHolder.mTextView.setVisibility(View.GONE);
+            } else {
+                productViewHolder.mButton.setVisibility(View.GONE);
+                productViewHolder.mTextView.setVisibility(View.VISIBLE);
+            }
         } else if (holder instanceof BottomHolder) {
             BottomHolder bottomHolder = (BottomHolder) holder;
         }
@@ -64,21 +77,21 @@ public class PrimeProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     public static class ProductViewHolder extends RecyclerView.ViewHolder {
-//        @Bind(R.id.text_view)
-//        TextView mTextView;
-//        @Bind(R.id.image_view)
-//        ImageView mImageView;
+        @Bind(R.id.btn_buy_now)
+        Button mButton;
+        @Bind(R.id.txt_buy_now)
+        TextView mTextView;
 
         ProductViewHolder(View view) {
             super(view);
-//            ButterKnife.bind(this, view);
-//
-//            view.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Log.d("ImageViewHolder", "onClick--> position = " + getPosition());
-//                }
-//            });
+            ButterKnife.bind(this, view);
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.d("ImageViewHolder", "onClick--> position = " + getPosition());
+                }
+            });
         }
     }
 

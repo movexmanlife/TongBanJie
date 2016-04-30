@@ -6,10 +6,127 @@
     android:orientation="vertical"
     tools:context="com.robot.tongbanjie.activity.SettingActivity">
 
-    <com.robot.tongbanjie.widget.TitleBarView
-        android:id="@+id/titlebar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    <RelativeLayout
+        android:id="@+id/rl_user_info"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/my_account_userinfo_view_height"
+        android:background="@color/red_light10"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/more_item_menu_padding_left"
+        android:paddingRight="@dimen/more_item_menu_padding_left">
+
+        <TextView
+            android:id="@+id/tv_full_name"
+            android:layout_width="@dimen/my_account_userinfo_head_height"
+            android:layout_height="@dimen/my_account_userinfo_head_height"
+            android:layout_centerVertical="true"
+            android:background="@drawable/my_account_head_icon_nochecked"
+            android:gravity="center"
+            android:textColor="@color/red_light5"
+            android:textSize="@dimen/common_font_size_small_plus" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/common_view_middle_margin"
+            android:layout_toRightOf="@id/tv_full_name"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="188****8888"
+                android:textColor="@color/white"
+                android:textSize="@dimen/common_font_size_middle" />
+
+            <LinearLayout
+                android:id="@+id/ll_level_des"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/common_view_small_larger_padding"
+                android:background="@drawable/shape_bg_more_level"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/iv_level_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="3.0dip"
+                    android:contentDescription="@null" />
+
+                <TextView
+                    android:id="@+id/tv_level_tip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="2.0dip"
+                    android:paddingLeft="3.0dip"
+                    android:paddingRight="3.0dip"
+                    android:paddingTop="2.0dip"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/common_font_size_smaller" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/topbar_navigation_back_layout_width"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/rl_vip_member"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1.0"
+            android:background="@drawable/common_item_sel">
+
+            <TextView
+                android:id="@+id/tv_vip_member"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:drawableLeft="@drawable/icon_vip_member"
+                android:drawablePadding="3.0dip"
+                android:gravity="center"
+                android:text="我的会员"
+                android:textColor="@color/black_common"
+                android:textSize="@dimen/common_font_size_middle" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="1.0px"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="10.0dip"
+            android:layout_marginTop="10.0dip"
+            android:background="@color/vertical_divider_color" />
+
+        <RelativeLayout
+            android:id="@+id/rl_task_center"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1.0"
+            android:background="@drawable/common_item_sel">
+
+            <TextView
+                android:id="@+id/tv_task_center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:drawableLeft="@drawable/icon_task_center"
+                android:drawablePadding="3.0dip"
+                android:gravity="center"
+                android:text="任务中心"
+                android:textColor="@color/black_common"
+                android:textSize="@dimen/common_font_size_middle" />
+        </RelativeLayout>
+    </LinearLayout>
 
     <com.robot.tongbanjie.widget.CommonItem
         android:id="@+id/more_invest_mode"
@@ -22,50 +139,32 @@
         android:paddingRight="10dp"
         android:paddingTop="15dp" />
 
+
     <com.robot.tongbanjie.widget.CommonItem
-        android:id="@+id/more_recommend"
+        android:id="@+id/more_help_and_feedback"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/common_item_sel"
         android:paddingBottom="15dp"
         android:paddingLeft="20dp"
         android:paddingRight="10dp"
         android:paddingTop="15dp" />
 
-    <LinearLayout
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@drawable/bg_divider_left_60dp" />
+
+    <com.robot.tongbanjie.widget.CommonItem
+        android:id="@+id/more_score"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@color/white"
-        android:orientation="vertical">
-
-        <com.robot.tongbanjie.widget.CommonItem
-            android:id="@+id/more_help_and_feedback"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/common_item_sel"
-            android:paddingBottom="15dp"
-            android:paddingLeft="20dp"
-            android:paddingRight="10dp"
-            android:paddingTop="15dp" />
-
-        <include
-            layout="@layout/view_divider"
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_marginLeft="60dp" />
-
-        <com.robot.tongbanjie.widget.CommonItem
-            android:id="@+id/more_score"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/common_item_sel"
-            android:paddingBottom="15dp"
-            android:paddingLeft="20dp"
-            android:paddingRight="10dp"
-            android:paddingTop="15dp" />
-    </LinearLayout>
+        android:background="@drawable/common_item_sel"
+        android:paddingBottom="15dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="10dp"
+        android:paddingTop="15dp" />
 
     <com.robot.tongbanjie.widget.CommonItem
         android:id="@+id/more_setting"

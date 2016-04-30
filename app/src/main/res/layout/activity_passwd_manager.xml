@@ -17,7 +17,7 @@
         android:orientation="vertical">
 
         <com.robot.tongbanjie.widget.CommonItem
-            android:id="@+id/passwd_manager_modify_login_pwd"
+            android:id="@+id/safe_manager_modify_login_pwd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/common_item_sel"
@@ -26,14 +26,13 @@
             android:paddingRight="10dp"
             android:paddingTop="15dp" />
 
-        <include
-            layout="@layout/view_divider"
+        <View
             android:layout_width="match_parent"
             android:layout_height="1px"
-            android:layout_marginLeft="20dp" />
+            android:background="@drawable/bg_divider_left_20dp" />
 
         <com.robot.tongbanjie.widget.CommonItem
-            android:id="@+id/passwd_manager_modify_trade_pwd"
+            android:id="@+id/safe_manager_retrieve_pwd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/common_item_sel"
@@ -42,14 +41,31 @@
             android:paddingRight="10dp"
             android:paddingTop="15dp" />
 
-        <include
-            layout="@layout/view_divider"
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_marginLeft="20dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical">
 
         <com.robot.tongbanjie.widget.CommonItem
-            android:id="@+id/passwd_manager_retrieve_pwd"
+            android:id="@+id/safe_manager_modify_trade_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/common_item_sel"
+            android:paddingBottom="15dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"
+            android:paddingTop="15dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@drawable/bg_divider_left_20dp" />
+
+        <com.robot.tongbanjie.widget.CommonItem
+            android:id="@+id/safe_manager_lock_pattern"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/common_item_sel"
@@ -60,7 +76,7 @@
     </LinearLayout>
 
     <com.robot.tongbanjie.widget.CommonItem
-        android:id="@+id/passwd_manager_lock_pattern"
+        android:id="@+id/safe_manager_device_manager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"

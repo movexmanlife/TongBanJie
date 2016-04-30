@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.RecyclerView.OnScrollListener;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.AbsoluteSizeSpan;
@@ -19,6 +20,7 @@ import android.widget.ViewSwitcher;
 
 import com.bartoszlipinski.recyclerviewheader.RecyclerViewHeader;
 import com.robot.tongbanjie.R;
+import com.robot.tongbanjie.activity.TongbaoInstructionActivity;
 import com.robot.tongbanjie.adapter.ImagePagerAdapter;
 import com.robot.tongbanjie.adapter.PrimeProductAdapter;
 import com.robot.tongbanjie.entity.PrimeProduct;
@@ -31,6 +33,7 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager;
+
 
 /**
  * 精品推荐
@@ -46,6 +49,12 @@ public class HomeFragment extends BaseFragment {
     private List<Integer> imageIdList;
     private TextSwitcher mTextSwitcher;
 
+    private int mTitleBarHeight;
+    private int mRecyclerHeaderHeight;
+    /**
+     * 首页图片广告栏的高度
+     */
+    private int mRecyclerHeaderBannerHeight;
 
     public static HomeFragment newInstance() {
         HomeFragment fragment = new HomeFragment();
@@ -70,6 +79,7 @@ public class HomeFragment extends BaseFragment {
         product.annualRateValue = 12.00f;
         product.operator = "立即抢购";
         product.timeLimit = 7;
+        product.isNowBuy = true;
         mDatas.add(product);
 
         PrimeProduct product2 = new PrimeProduct();
@@ -79,7 +89,8 @@ public class HomeFragment extends BaseFragment {
         product2.annualRateValue = 12.00f;
         product2.operator = "立即抢购";
         product2.timeLimit = 7;
-        mDatas.add(product);
+        product2.isNowBuy = true;
+        mDatas.add(product2);
 
         PrimeProduct product3 = new PrimeProduct();
         product3.productName = "新手专享163期";
@@ -88,7 +99,8 @@ public class HomeFragment extends BaseFragment {
         product3.annualRateValue = 12.00f;
         product3.operator = "立即抢购";
         product3.timeLimit = 7;
-        mDatas.add(product);
+        product3.isNowBuy = false;
+        mDatas.add(product3);
 
         PrimeProduct product4 = new PrimeProduct();
         product4.productName = "新手专享163期";
@@ -97,16 +109,11 @@ public class HomeFragment extends BaseFragment {
         product4.annualRateValue = 12.00f;
         product4.operator = "立即抢购";
         product4.timeLimit = 7;
-        mDatas.add(product);
+        product4.isNowBuy = false;
+        mDatas.add(product4);
 
-        PrimeProduct product5 = new PrimeProduct();
-//        product5.productName = "新手专享163期";
-//        product5.productDesc = "注册理财金可用-限APP";
-//        product5.annualRate = "预期年化";
-//        product5.annualRateValue = 12.00f;
-//        product5.operator = "立即抢购";
-//        product5.timeLimit = 7;
-        mDatas.add(product);
+        PrimeProduct bottom = new PrimeProduct();
+        mDatas.add(bottom);
 
         mAdapter = new PrimeProductAdapter(getActivity(), mDatas);
     }
@@ -116,10 +123,29 @@ public class HomeFragment extends BaseFragment {
         mTitleBar.setTitle("首页");
     }
 
+
+
     @Override
     public void initView() {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setAdapter(mAdapter);
+        mRecyclerHeaderBannerHeight = (int)getActivity().getResources().getDimension(R.dimen.home_page_banner_height);
+        final int listItemMarginTop = (int)getActivity().getResources().getDimension(R.dimen.home_page_list_item_margin_top);
+        mRecyclerView.setOnScrollListener(new OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                float alpha = 0;
+                int scrollY = getScollY(true, mRecyclerHeaderHeight);
+                int baseHeight = mRecyclerHeaderBannerHeight - mTitleBarHeight - listItemMarginTop;
+                if (scrollY >= baseHeight) {
+                    alpha = 1;
+                } else {
+                    alpha = scrollY / (baseHeight * 1.0f);
+                }
+                mTitleBar.setAlpha(alpha);
+                super.onScrolled(recyclerView, dx, dy);
+            }
+        });
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerHeader = RecyclerViewHeader.fromXml(getActivity(), R.layout.list_item_prime_product_header);
         mTextSwitcher = (TextSwitcher) mRecyclerHeader.findViewById(R.id.mTextSwitcher);
@@ -145,7 +171,41 @@ public class HomeFragment extends BaseFragment {
         viewPager.setInterval(2000);
         viewPager.startAutoScroll();
         viewPager.setCurrentItem(Integer.MAX_VALUE / 2 - Integer.MAX_VALUE / 2 % ImagePagerAdapter.getSize(imageIdList));
+        viewPager.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TongbaoInstructionActivity.start(getActivity());
+            }
+        });
         mRecyclerHeader.attachTo(mRecyclerView);
+
+        mRecyclerHeader.post(new Runnable() {
+            @Override
+            public void run() {
+                mRecyclerHeaderHeight = mRecyclerHeader.getHeight();
+                mTitleBarHeight = mTitleBar.getHeight();
+                mTitleBar.setVisibility(View.VISIBLE);
+                mTitleBar.setAlpha(0);
+            }
+        });
+    }
+
+    /**
+     * 计算RecyclerView滑动的距离
+     * @param hasHead 是否有头部
+     * @param headerHeight RecyclerView的头部高度
+     * @return 滑动的距离
+     */
+    public int getScollY(boolean hasHead, int headerHeight) {
+        LinearLayoutManager layoutManager = (LinearLayoutManager) mRecyclerView.getLayoutManager();
+        int position = layoutManager.findFirstVisibleItemPosition();
+        View firstVisiableChildView = layoutManager.findViewByPosition(position);
+        int itemHeight = firstVisiableChildView.getHeight();
+        if (hasHead) {
+            return headerHeight + (position) * itemHeight - firstVisiableChildView.getTop();
+        } else {
+            return (position) * itemHeight - firstVisiableChildView.getTop();
+        }
     }
 
     @Override
@@ -192,4 +252,5 @@ public class HomeFragment extends BaseFragment {
             }
         }, 1500);
     }
+
 }

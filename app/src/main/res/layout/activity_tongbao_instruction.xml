@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.robot.tongbanjie.widget.TitleBarView
+        android:id="@+id/titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#eeeeee"
+                android:padding="10dp"
+                android:text="总则："
+                android:textColor="#999999"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/item_1_3"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#eeeeee"
+                android:padding="10dp"
+                android:text="定向委托投资"
+                android:textColor="#999999"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/item_4_8"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#eeeeee"
+                android:padding="10dp"
+                android:text="投资收益"
+                android:textColor="#999999"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/item_9_10"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/item_11"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#eeeeee"
+                android:padding="10dp"
+                android:text="提取"
+                android:textColor="#999999"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/item_12_13"
+                android:textSize="14sp" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@drawable/table_v_divider"
+                android:orientation="vertical"
+                android:showDividers="middle|beginning|end">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@drawable/table_h_divider"
+                    android:orientation="horizontal"
+                    android:showDividers="middle|beginning|end">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#f8f8f8"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="转出时间"
+                        android:textColor="#434343"
+                        android:textSize="@dimen/table_title_text_size" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#f8f8f8"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="到账时间"
+                        android:textColor="#434343"
+                        android:textSize="@dimen/table_title_text_size" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@drawable/table_h_divider"
+                    android:orientation="horizontal"
+                    android:showDividers="middle|beginning|end">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="周一00:00~15:00"
+                        android:textColor="#434343"
+                        android:textSize="@dimen/table_text_size" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="周一23:59前"
+                        android:textColor="#434343"
+                        android:textSize="@dimen/table_text_size" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@drawable/table_h_divider"
+                    android:orientation="horizontal"
+                    android:showDividers="middle|beginning|end">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="周二00:00~15:00"
+                        android:textColor="#434343"
+                        android:textSize="@dimen/table_text_size" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="周二23:59前"
+                        android:textColor="#434343"
+                        android:textSize="@dimen/table_text_size" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@drawable/table_h_divider"
+                    android:orientation="horizontal"
+                    android:showDividers="middle|beginning|end">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="周三00:00~15:00"
+                        android:textColor="#434343"
+                        android:textSize="@dimen/table_text_size" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="周三23:59前"
+                        android:textColor="#434343"
+                        android:textSize="@dimen/table_text_size" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@drawable/table_h_divider"
+                    android:orientation="horizontal"
+                    android:showDividers="middle|beginning|end">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="周四00:00~15:00"
+                        android:textColor="#434343"
+                        android:textSize="@dimen/table_text_size" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="周四23:59前"
+                        android:textColor="#434343"
+                        android:textSize="@dimen/table_text_size" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@drawable/table_h_divider"
+                    android:orientation="horizontal"
+                    android:showDividers="middle|beginning|end">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="周五00:00~15:00"
+                        android:textColor="#434343"
+                        android:textSize="@dimen/table_text_size" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="周五23:59前"
+                        android:textColor="#434343"
+                        android:textSize="@dimen/table_text_size" />
+                </TableRow>
+            </TableLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/item_14_15"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#eeeeee"
+                android:padding="10dp"
+                android:text="查询"
+                android:textColor="#999999"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/item_16_20"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -19,4 +19,22 @@
     <com.robot.tongbanjie.widget.SafeKeyboardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></com.robot.tongbanjie.widget.SafeKeyboardView>
+
+    <com.robot.tongbanjie.widget.CheckBoxObservable
+        android:id="@+id/CheckBoxObservable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <com.robot.tongbanjie.widget.TextViewObserver
+        android:id="@+id/TextViewObserver"
+        android:text="0.00"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <com.robot.tongbanjie.widget.TextViewObserver
+        android:id="@+id/TextViewObserver2"
+        android:text="1000.00"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
 </LinearLayout>

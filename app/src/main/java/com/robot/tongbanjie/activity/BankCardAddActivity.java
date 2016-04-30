@@ -3,8 +3,11 @@ package com.robot.tongbanjie.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 
 import com.robot.tongbanjie.R;

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.robot.tongbanjie.widget.TitleBarView
+        android:id="@+id/titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/shader"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#70000000"
+            android:visibility="gone" />
+
+        <ListView
+            android:id="@+id/listview"
+            android:listSelector="@color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@drawable/divider_bg"
+            android:dividerHeight="1px"
+            android:choiceMode="singleChoice"
+            android:visibility="gone"
+            android:scrollbars="none" />
+
+    </FrameLayout>
+
+</LinearLayout>

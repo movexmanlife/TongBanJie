@@ -19,7 +19,21 @@ import android.widget.TextView;
 import com.robot.tongbanjie.R;
 import com.robot.tongbanjie.util.DensityUtils;
 
-public class SafeKeyboardView extends LinearLayout{
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+public class SafeKeyboardView extends LinearLayout {
+    private OnAddListener mOnAddListener;
+    private OnConfirmListener mOnConfirmListener;
+    private OnDeleteListener mOnDeleteListener;
+    private KeyAdapter mKeyAdapter;
+    public enum Mode {
+        Normal,
+        Shuffle
+    }
+
     public SafeKeyboardView(Context context) {
         super(context);
         initView();
@@ -48,7 +62,7 @@ public class SafeKeyboardView extends LinearLayout{
     }
 
     private void addGridPasswdView() {
-        LayoutParams lp = new LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+        LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
         lp.gravity  = Gravity.CENTER_HORIZONTAL;
         GridView gridView = new GridView(getContext());
         gridView.setBackgroundColor(Color.parseColor("#282828"));
@@ -59,26 +73,48 @@ public class SafeKeyboardView extends LinearLayout{
         gridView.setHorizontalSpacing(DensityUtils.dip2px(getContext(), 10));
         gridView.setVerticalSpacing(DensityUtils.dip2px(getContext(), 10));
         addView(gridView);
-        gridView.setAdapter(new KeyAdapter(getContext()));
-
+        mKeyAdapter = new KeyAdapter(getContext());
+        gridView.setAdapter(mKeyAdapter);
     }
 
-     public static class KeyAdapter extends BaseAdapter {
-         private static final String KEY_CONFIRM = "确定";
-         private static final String KEY_DEL = "删除";
-         private String[] keys = new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", KEY_CONFIRM, "0", KEY_DEL};
+    public void shuffle() {
+        mKeyAdapter.shuffle();
+        mKeyAdapter.notifyDataSetChanged();
+    }
+
+     public class KeyAdapter extends BaseAdapter {
+         public static final String KEY_CONFIRM = "确定";
+         public static final String KEY_DEL = "删除";
+
+         private final String[] numbers = new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "0"};
+         private List<String> keyList = new ArrayList<String>(Arrays.asList(numbers));
          private Context mContext;
+
          public KeyAdapter(Context context) {
              mContext = context;
+             insertSpecialKey();
          }
+
+         private void insertSpecialKey() {
+             keyList.add(KEY_CONFIRM);
+             Collections.swap(keyList, keyList.size() - 2, keyList.size() -1);
+             keyList.add(KEY_DEL);
+         }
+
+         private void removeSpecialKey() {
+             Collections.swap(keyList, keyList.size() - 3, keyList.size() - 2);
+             keyList.remove(keyList.size() - 1);
+             keyList.remove(keyList.size() - 1);
+         }
+
          @Override
          public int getCount() {
-             return keys.length;
+             return keyList.size();
          }
 
          @Override
          public Object getItem(int position) {
-             return keys[position];
+             return keyList.get(position);
          }
 
          @Override
@@ -99,13 +135,17 @@ public class SafeKeyboardView extends LinearLayout{
                  viewHolder = (ViewHolder)convertView.getTag();
              }
 
-             String key = keys[position];
+             String key = keyList.get(position);
+             viewHolder.number.setOnClickListener(new NumberClickListener());
              if (TextUtils.equals(KEY_DEL, key)) {
-                 viewHolder.number.setText(null);
+                 viewHolder.number.setText(KEY_DEL);
+                 viewHolder.number.setTextColor(Color.TRANSPARENT);
                  viewHolder.img.setVisibility(View.VISIBLE);
              } else {
                  viewHolder.number.setText(key);
+                 viewHolder.number.setTextColor(Color.WHITE);
                  viewHolder.img.setVisibility(View.GONE);
+
                  if (TextUtils.equals(KEY_CONFIRM, key)) {
                      viewHolder.number.setTextSize(14);
                      TextPaint textPaint = viewHolder.number.getPaint();
@@ -120,10 +160,69 @@ public class SafeKeyboardView extends LinearLayout{
              return convertView;
          }
 
-         static class ViewHolder {
+         public void shuffle() {
+             removeSpecialKey();
+             Collections.shuffle(keyList);
+             insertSpecialKey();
+         }
+
+         class ViewHolder {
              TextView number;
              ImageView img;
          }
      }
 
+    private class NumberClickListener implements OnClickListener {
+
+        @Override
+        public void onClick(View v) {
+            String content = ((TextView)v).getText().toString();
+            if (TextUtils.equals(KeyAdapter.KEY_CONFIRM, content)) {
+                if (mOnConfirmListener != null) {
+                    mOnConfirmListener.onConfirm(v);
+                }
+            } else if (TextUtils.equals(KeyAdapter.KEY_DEL, content)) {
+                if (mOnDeleteListener != null) {
+                    mOnDeleteListener.onDelete(v);
+                }
+            } else {
+                if (mOnAddListener != null) {
+                    mOnAddListener.onAdd(v, content);
+                }
+            }
+        }
+    }
+
+    public void setOnAddListener(OnAddListener onAddListener) {
+        this.mOnAddListener = onAddListener;
+    }
+
+    public void setOnConfirmListener(OnConfirmListener onConfirmListener) {
+        this.mOnConfirmListener = onConfirmListener;
+    }
+
+    public void setOnDeleteListener(OnDeleteListener onDeleteListener) {
+        this.mOnDeleteListener = onDeleteListener;
+    }
+
+    /**
+     * 添加
+     */
+    public interface OnAddListener {
+        public void onAdd(View view, String number);
+    }
+
+    /**
+     * 确定
+     */
+    public interface OnConfirmListener {
+        public void onConfirm(View view);
+    }
+
+    /**
+     * 删除
+     */
+    public interface OnDeleteListener {
+        public void onDelete(View view);
+    }
 }

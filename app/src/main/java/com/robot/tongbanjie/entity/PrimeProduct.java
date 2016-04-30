@@ -7,4 +7,9 @@ public class PrimeProduct {
     public float annualRateValue;
     public String operator;
     public int timeLimit;
+
+    /**
+     * 显示立即抢购
+     */
+    public boolean isNowBuy = false;
 }

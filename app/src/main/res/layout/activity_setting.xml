@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:slideswitch="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,13 +10,12 @@
     <com.robot.tongbanjie.widget.TitleBarView
         android:id="@+id/titlebar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </com.robot.tongbanjie.widget.TitleBarView>
+        android:layout_height="wrap_content"></com.robot.tongbanjie.widget.TitleBarView>
 
     <LinearLayout
-        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:orientation="vertical">
 
         <com.robot.tongbanjie.widget.CommonItem
@@ -28,14 +28,14 @@
             android:paddingRight="10dp"
             android:paddingTop="15dp" />
 
-        <include
-            layout="@layout/view_divider"
+        <View
+            android:id="@+id/divider"
             android:layout_width="match_parent"
             android:layout_height="1px"
-            android:layout_marginLeft="20dp" />
+            android:background="@drawable/bg_divider_left_20dp" />
 
         <com.robot.tongbanjie.widget.CommonItem
-            android:id="@+id/setting_passwd"
+            android:id="@+id/setting_amount_cashed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/common_item_sel"
@@ -46,7 +46,7 @@
     </LinearLayout>
 
     <com.robot.tongbanjie.widget.CommonItem
-        android:id="@+id/setting_amount_cashed"
+        android:id="@+id/setting_safe_center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -56,23 +56,98 @@
         android:paddingRight="10dp"
         android:paddingTop="15dp" />
 
+
+    <LinearLayout
+        android:id="@+id/setting_wifi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/common_item_sel"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:paddingBottom="15dp"
+            android:paddingTop="15dp"
+            android:text="Wifi下自动下载新版本"
+            android:textColor="#333333"
+            android:textSize="16sp"></TextView>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"></View>
+
+        <CheckBox
+            android:id="@+id/setting_wifi_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="20dp"
+            android:button="@drawable/bg_wifi_switch" />
+
+        <!--        <com.leaking.slideswitch.SlideSwitch
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="20dp"
+                    slideswitch:isOpen="true"
+                    slideswitch:shape="circle"
+                    slideswitch:themeColor="#4cd946"></com.leaking.slideswitch.SlideSwitch>-->
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@drawable/bg_divider_left_20dp" />
 
     <com.robot.tongbanjie.widget.CommonItem
         android:id="@+id/setting_update"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
         android:background="@drawable/common_item_sel"
         android:paddingBottom="15dp"
         android:paddingLeft="20dp"
         android:paddingRight="10dp"
         android:paddingTop="15dp" />
+
+    <com.robot.tongbanjie.widget.CommonItem
+        android:id="@+id/setting_about_me"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/common_item_sel"
+        android:paddingBottom="15dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="10dp"
+        android:paddingTop="15dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/common_item_sel"
+        android:paddingBottom="15dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="10dp"
+        android:paddingTop="15dp"
+        android:text="退出登录"
+        android:textColor="#d1564f"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/setting_version"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:gravity="center" />
+        android:gravity="center"
+        android:text="版本号：1.0.0"
+        android:textColor="#898989"
+        android:textSize="14sp" />
 
 </LinearLayout>

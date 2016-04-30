@@ -11,9 +11,9 @@ import android.view.ViewGroup;
 
 import com.robot.tongbanjie.R;
 import com.robot.tongbanjie.adapter.InvestProductAdapter;
-import com.robot.tongbanjie.adapter.PrimeProductAdapter;
 import com.robot.tongbanjie.entity.InvestProduct;
-import com.robot.tongbanjie.entity.PrimeProduct;
+import com.robot.tongbanjie.util.NetworkBroadcastReceiverHelper;
+import com.robot.tongbanjie.util.NetworkUtils;
 import com.robot.tongbanjie.widget.TitleBarView;
 
 import java.util.ArrayList;
@@ -21,6 +21,10 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import in.srain.cube.views.ptr.PtrClassicFrameLayout;
+import in.srain.cube.views.ptr.PtrDefaultHandler;
+import in.srain.cube.views.ptr.PtrFrameLayout;
+import in.srain.cube.views.ptr.PtrHandler;
 
 /**
  * 理财产品
@@ -28,11 +32,15 @@ import butterknife.ButterKnife;
 public class ProductFragment extends BaseFragment {
     @Bind(R.id.titlebar)
     TitleBarView mTitlebar;
+    @Bind(R.id.id_ptr_classic_frame_layout)
+    PtrClassicFrameLayout mPtrClassicFrameLayout;
     @Bind(R.id.recyclerView)
     RecyclerView mRecyclerView;
+
     private InvestProductAdapter mAdapter;
-    private List<InvestProduct> mDatas
-            ;
+    private List<InvestProduct> mDatas;
+    private NetworkBroadcastReceiverHelper mNetworkBroadcastReceiverHelper;
+
     public static ProductFragment newInstance() {
         ProductFragment fragment = new ProductFragment();
         return fragment;
@@ -43,14 +51,29 @@ public class ProductFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_product, null);
         ButterKnife.bind(this, view);
+        registerBroadcast();
         return view;
+    }
+
+    /**
+     * 显示网络提示
+     */
+    private void showNetworkTips() {
+        if (NetworkUtils.getConnectivityStatus(getActivity()) == NetworkUtils.TYPE_NOT_CONNECTED) {
+            mAdapter.isShowNetworkErrorTips(true);
+        } else {
+            mAdapter.isShowNetworkErrorTips(false);
+        }
     }
 
     @Override
     public void initData() {
         mDatas = new ArrayList<InvestProduct>();
+        InvestProduct network = new InvestProduct();
+        network.viewType = InvestProductAdapter.ITEM_TYPE_NETWORK_ERROR;
         InvestProduct none = new InvestProduct();
-        
+        none.viewType = InvestProductAdapter.ITEM_TYPE_TONG_BAO;
+
         InvestProduct investProduct = new InvestProduct();
         investProduct.resId = R.drawable.invest_newer;
         investProduct.title = "新手专享";
@@ -104,7 +127,7 @@ public class ProductFragment extends BaseFragment {
         investProduct6.timeLimit = 0;
         investProduct6.isReservation = false;
         investProduct6.reservation = "";
-        
+
         InvestProduct investProduct7 = new InvestProduct();
         investProduct7.resId = R.drawable.invest_zhuanrang;
         investProduct7.title = "转让专区";
@@ -114,7 +137,8 @@ public class ProductFragment extends BaseFragment {
         investProduct7.isReservation = true;
         investProduct7.reservation = "灵活变现：转出手续费3折优惠";
 
-        mDatas.add(none);
+        mDatas.add(network); // 数据占位
+        mDatas.add(none); // 数据占位
         mDatas.add(investProduct);
         mDatas.add(investProduct2);
         mDatas.add(investProduct3);
@@ -122,6 +146,24 @@ public class ProductFragment extends BaseFragment {
         mDatas.add(investProduct5);
         mDatas.add(investProduct6);
         mDatas.add(investProduct7);
+        mPtrClassicFrameLayout.setLastUpdateTimeRelateObject(this);
+        mPtrClassicFrameLayout.getHeaderView();
+        mPtrClassicFrameLayout.setPtrHandler(new PtrHandler() {
+            @Override
+            public void onRefreshBegin(PtrFrameLayout frame) {
+                mPtrClassicFrameLayout.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mPtrClassicFrameLayout.refreshComplete();
+                    }
+                }, 3000);
+            }
+
+            @Override
+            public boolean checkCanDoRefresh(PtrFrameLayout frame, View content, View header) {
+                return PtrDefaultHandler.checkContentCanBePulledDown(frame, content, header);
+            }
+        });
         mAdapter = new InvestProductAdapter(getActivity(), mDatas);
     }
 
@@ -135,10 +177,37 @@ public class ProductFragment extends BaseFragment {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        showNetworkTips();
     }
 
     @Override
     public void setListener() {
 
     }
+
+    private void registerBroadcast() {
+        mNetworkBroadcastReceiverHelper = new NetworkBroadcastReceiverHelper(getActivity(),
+                new NetworkBroadcastReceiverHelper.OnNetworkStateChangedListener(){
+                    @Override
+                    public void onConnected() {
+                        mAdapter.isShowNetworkErrorTips(false);
+                    }
+                    @Override
+                    public void onDisConnected() {
+                        mAdapter.isShowNetworkErrorTips(true);
+                    }
+                });
+        mNetworkBroadcastReceiverHelper.register();
+    }
+
+    private void unregisterBroadcast() {
+        mNetworkBroadcastReceiverHelper.unregister();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unregisterBroadcast();
+    }
+
 }

@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.robot.tongbanjie.R;
 import com.robot.tongbanjie.activity.CheckPhoneActivity;
@@ -12,7 +14,11 @@ import com.robot.tongbanjie.activity.EvaluateRiskActivity;
 import com.robot.tongbanjie.activity.FeedbackActivity;
 import com.robot.tongbanjie.activity.HelpAndFeedbackActivity;
 import com.robot.tongbanjie.activity.SettingActivity;
+import com.robot.tongbanjie.activity.TongbaoActivity;
+import com.robot.tongbanjie.activity.TongbaoAssertsSettingActivity;
+import com.robot.tongbanjie.activity.TongbaoInstructionActivity;
 import com.robot.tongbanjie.dialog.EvaluateDialog;
+import com.robot.tongbanjie.util.DensityUtils;
 import com.robot.tongbanjie.util.MarketUtils;
 import com.robot.tongbanjie.widget.CommonItem;
 import com.robot.tongbanjie.widget.CommonItem.Type;
@@ -25,12 +31,8 @@ import butterknife.ButterKnife;
 public class MoreFragment extends BaseFragment implements OnClickListener {
 	private static final String TAG = MoreFragment.class.getSimpleName();
 	private static final String TONG_BAN_JIE_PACKAGE_NAME = "com.tongbanjie.android";
-	@Bind(R.id.titlebar)
-	TitleBarView mTitleBar;
 	@Bind(R.id.more_invest_mode)
 	CommonItem mInvestMode;
-	@Bind(R.id.more_recommend)
-	CommonItem mRecommend;
 	@Bind(R.id.more_help_and_feedback)
 	CommonItem mHelpAndFeedback;
 	@Bind(R.id.more_score)
@@ -39,6 +41,10 @@ public class MoreFragment extends BaseFragment implements OnClickListener {
 	CommonItem mSetting;
 	@Bind(R.id.more_about)
 	CommonItem mAbout;
+	@Bind(R.id.rl_vip_member)
+	RelativeLayout mVipMember;
+	@Bind(R.id.rl_task_center)
+	RelativeLayout mTaskCenter;
 
 	public static MoreFragment newInstance() {
 		MoreFragment fragment = new MoreFragment();
@@ -59,22 +65,16 @@ public class MoreFragment extends BaseFragment implements OnClickListener {
 
 	@Override
 	public void initTitle() {
-		mTitleBar.initOnlyTitle("更多");
+
 	}
 
 	@Override
 	public void initView() {
 		mInvestMode.setType(Type.All);
-		mInvestMode.setSummaryImg(R.mipmap.icon_riskstyle);
+		mInvestMode.setSummaryImg(R.drawable.icon_riskstyle);
 		mInvestMode.setSummaryText("投资风格");
 		mInvestMode.setDetailText("未测评");
 		mInvestMode.setDetailImg(R.mipmap.icon_triangle_arrow);
-
-		mRecommend.setType(Type.All);
-		mRecommend.setSummaryImg(R.drawable.icon_hongbao);
-		mRecommend.setSummaryText("推荐有奖");
-		mRecommend.setDetailText("送好友8888理财金");
-		mRecommend.setDetailImg(R.mipmap.icon_triangle_arrow);
 
 		mHelpAndFeedback.setType(Type.SummaryImgSummaryTxt_DetailImg);
 		mHelpAndFeedback.setSummaryImg(R.drawable.icon_service);
@@ -90,7 +90,8 @@ public class MoreFragment extends BaseFragment implements OnClickListener {
 		mSetting.setSummaryImg(R.drawable.icon_more_settings);
 		mSetting.setSummaryText("设置");
 		mSetting.getDetailTextView().setText("");
-		mSetting.getDetailTextView().setBackgroundResource(R.drawable.ic_indicators_now);
+		setIndicatorSize(mSetting.getDetailTextView());
+		mSetting.getDetailTextView().setBackgroundResource(R.drawable.bg_indicator);
 		mSetting.setDetailImg(R.mipmap.icon_triangle_arrow);
 
 		mAbout.setType(Type.SummaryImgSummaryTxt_DetailImg);
@@ -99,10 +100,18 @@ public class MoreFragment extends BaseFragment implements OnClickListener {
 		mAbout.setDetailImg(R.mipmap.icon_triangle_arrow);
 	}
 
+	private void setIndicatorSize(TextView textView) {
+		RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) textView.getLayoutParams();
+		lp.width = (int)getActivity().getResources().getDimension(R.dimen.indicator_width);
+		lp.height = (int)getActivity().getResources().getDimension(R.dimen.indicator_width);
+		textView.setLayoutParams(lp);
+	}
+
 	@Override
 	public void setListener() {
+		mVipMember.setOnClickListener(this);
+		mTaskCenter.setOnClickListener(this);
 		mInvestMode.setOnClickListener(this);
-		mRecommend.setOnClickListener(this);
 		mHelpAndFeedback.setOnClickListener(this);
 		mScore.setOnClickListener(this);
 		mSetting.setOnClickListener(this);
@@ -113,26 +122,30 @@ public class MoreFragment extends BaseFragment implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 			case R.id.more_invest_mode:
-				CheckPhoneActivity.start(getActivity(), true, "");
+//				CheckPhoneActivity.start(getActivity(), true, "");
+				EvaluateRiskActivity.start(getActivity());
 				break;
-			case R.id.more_recommend:
-//				new TipsDialog(getActivity()).builder()
+			case R.id.rl_vip_member:
+				break;
+			case R.id.rl_task_center:
+				break;
+//			case R.id.more_recommend:
+//				new CommonDialog(getActivity()).builder()
 //						.setTitle("提示").setContentMsg("您尚未认证身份信息\n请添加银行卡进行身份认证")
-//						.setNegativeBtn("取消", new TipsDialog.OnNegativeListener() {
+//						.setNegativeBtn("取消", new CommonDialog.OnNegativeListener() {
 //							@Override
 //							public void onNegative(View view) {
 //								ToastUtils.showShort("取消");
 //							}
 //						})
-//						.setPositiveBtn("添加银行卡", new TipsDialog.OnPositiveListener() {
+//						.setPositiveBtn("添加银行卡", new CommonDialog.OnPositiveListener() {
 //							@Override
 //							public void onPositive(View view) {
 //								ToastUtils.showShort("添加银行卡");
 //							}
 //						})
 //						.show();
-				EvaluateRiskActivity.start(getActivity());
-				break;
+//				break;
 			case R.id.more_help_and_feedback:
 				HelpAndFeedbackActivity.start(getActivity());
 				break;

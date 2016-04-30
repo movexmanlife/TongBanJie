@@ -1,0 +1,48 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/content_backgroud"
+    android:orientation="vertical"
+    tools:context="com.robot.tongbanjie.activity.SettingActivity">
+
+    <com.robot.tongbanjie.widget.TitleBarView
+        android:id="@+id/titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.robot.tongbanjie.widget.CommonItem
+        android:id="@+id/userinfo_mail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/common_item_sel"
+        android:paddingBottom="15dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="10dp"
+        android:paddingTop="15dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@drawable/bg_divider_left_20dp" />
+
+    <com.robot.tongbanjie.widget.CommonItem
+        android:id="@+id/userinfo_qq"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/common_item_sel"
+        android:paddingBottom="15dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="10dp"
+        android:paddingTop="15dp" />
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:autoLink="all|web"
+        android:text="@string/github_address"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

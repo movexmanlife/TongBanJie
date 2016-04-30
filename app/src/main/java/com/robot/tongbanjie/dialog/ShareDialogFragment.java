@@ -32,7 +32,7 @@ public class ShareDialogFragment extends BaseDialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.share, container,
+        View view = inflater.inflate(R.layout.dialog_share, container,
                 false);
         initDialogTitle(view);
         GridView gridView = (GridView) view.findViewById(R.id.share_grid);

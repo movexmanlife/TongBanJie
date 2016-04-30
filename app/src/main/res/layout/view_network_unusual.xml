@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/pink_light1"
+    android:paddingBottom="@dimen/common_view_large_padding"
+    android:paddingLeft="@dimen/network_unusual_view_padding_left"
+    android:paddingTop="@dimen/common_view_large_padding">
+
+    <ImageView
+        android:id="@+id/iv_network_unusual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:contentDescription="@null"
+        android:src="@drawable/icon_network_unusual" />
+
+    <TextView
+        android:id="@+id/tv_network_unusual_tip"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/network_unusual_view_tip_margin_left"
+        android:layout_toRightOf="@id/iv_network_unusual"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="暂无网络连接，请检查您的网络设置"
+        android:textColor="@color/black_light1"
+        android:textSize="@dimen/common_font_size_small" />
+</RelativeLayout>

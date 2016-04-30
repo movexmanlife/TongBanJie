@@ -8,4 +8,38 @@
     <dimen name="common_font_size_middle">16dp</dimen>
     <dimen name="common_font_size_small">14dp</dimen>
     <dimen name="dialog_tips_corner">10dp</dimen>
+    <dimen name="home_page_banner_height">160dp</dimen>
+    <dimen name="home_page_list_item_margin_top">15dp</dimen>
+    <dimen name="more_item_menu_padding_left">15.0dip</dimen>
+    <dimen name="topbar_navigation_back_layout_width">60.0dip</dimen>
+    <dimen name="my_account_userinfo_view_height">120.0dip</dimen>
+    <dimen name="my_account_userinfo_head_height">70.0dip</dimen>
+    <dimen name="common_font_size_small_plus">15.0dip</dimen>
+    <dimen name="common_view_middle_margin">10.0dip</dimen>
+    <dimen name="common_view_small_larger_padding">8.0dip</dimen>
+    <dimen name="common_font_size_smaller">12.0dip</dimen>
+    <dimen name="indicator_width">8dp</dimen>
+    <dimen name="indicator_radius">4dp</dimen>
+    <dimen name="table_title_text_size">16sp</dimen>
+    <dimen name="table_text_size">14sp</dimen>
+
+    <dimen name="common_view_large_margin">15.0dip</dimen>
+    <item type="dimen" name="common_view_large_padding">@dimen/common_view_large_margin</item>
+    <dimen name="network_unusual_view_tip_margin_left">8.0dip</dimen>
+    <dimen name="network_unusual_view_padding_left">13.0dip</dimen>
+    <dimen name="myasset_head_padding_top">30.0dip</dimen>
+    <dimen name="myasset_head_margin_left">20.0dip</dimen>
+    <dimen name="common_font_size_smaller_plus">13.0dip</dimen>
+    <dimen name="myasset_income_layout_padding_bottom">10.0dip</dimen>
+    <dimen name="common_view_small_margin">5.0dip</dimen>
+    <dimen name="tb_amount_size">27.0dip</dimen>
+    <dimen name="tb_notify_size">40.0dip</dimen>
+    <dimen name="myasset_total_asset_font_size">56.0dip</dimen>
+    <dimen name="indicator_right_padding">10.0dip</dimen>
+    <dimen name="commend_middle_blank_space_height">10.0dip</dimen>
+    <dimen name="commend_top_content_padding_top">20.0dip</dimen>
+    <dimen name="common_font_size_large">18.0dip</dimen>
+    <dimen name="more_item_menu_padding_top">14.0dip</dimen>
+    <dimen name="financing_item_padding">9.0dip</dimen>
+    <dimen name="myasset_emptymsg_margin_top">40.0dip</dimen>
 </resources>

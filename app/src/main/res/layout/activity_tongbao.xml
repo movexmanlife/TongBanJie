@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/gray_bg_global"
+    android:orientation="vertical">
+
+    <com.robot.tongbanjie.widget.TitleBarView
+        android:id="@+id/titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/pink_light1"
+        android:paddingBottom="@dimen/common_view_large_padding"
+        android:paddingLeft="@dimen/network_unusual_view_padding_left"
+        android:paddingTop="@dimen/common_view_large_padding">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/network_unusual_view_tip_margin_left"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="资金自动转入铜宝，持续享受收益，随时取现"
+            android:textColor="#d1564f"
+            android:textSize="@dimen/common_font_size_small" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="@null"
+            android:layout_marginRight="20dp"
+            android:src="@mipmap/icon_triangle_arrow" />
+    </RelativeLayout>
+
+    <in.srain.cube.views.ptr.PtrClassicFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:cube_ptr="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/id_ptr_classic_frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        cube_ptr:ptr_duration_to_close="200"
+        cube_ptr:ptr_duration_to_close_header="700"
+        cube_ptr:ptr_keep_header_when_refresh="true"
+        cube_ptr:ptr_pull_to_fresh="false"
+        cube_ptr:ptr_ratio_of_header_height_to_refresh="1.1"
+        cube_ptr:ptr_resistance="1.8">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/content_backgroud"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <include
+                    android:id="@+id/view_no_network"
+                    layout="@layout/view_network_unusual"
+                    android:visibility="gone" />
+
+                <RelativeLayout
+                    android:id="@+id/check_trade_record"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/tb_check_trade_record_color"
+                    android:paddingBottom="@dimen/common_view_middle_margin"
+                    android:paddingTop="@dimen/myasset_head_padding_top">
+
+                    <TextView
+                        android:id="@+id/today_income_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/myasset_head_margin_left"
+                        android:background="@null"
+                        android:text="@string/tongbao_today_assets_unit"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/common_font_size_small" />
+
+                    <TextView
+                        android:id="@+id/tongbao_today_assets_value"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/today_income_text"
+                        android:layout_marginLeft="@dimen/myasset_head_margin_left"
+                        android:layout_marginTop="@dimen/common_view_middle_margin"
+                        android:background="@null"
+                        android:includeFontPadding="false"
+                        android:text="@string/zore_assets"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/myasset_total_asset_font_size" />
+
+                    <RelativeLayout
+                        android:id="@+id/show_check_all_earning"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@id/tongbao_today_assets_value"
+                        android:layout_marginBottom="@dimen/common_view_middle_margin"
+                        android:layout_marginLeft="@dimen/myasset_head_margin_left"
+                        android:layout_marginTop="@dimen/common_view_middle_margin"
+                        android:background="@null"
+                        android:gravity="center_vertical"
+                        android:visibility="invisible">
+
+                        <ImageView
+                            android:id="@+id/check_trade_recode_arrow"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/myasset_head_margin_left"
+                            android:background="@null"
+                            android:contentDescription="@null"
+                            android:src="@drawable/icon_check_trade_recode_arrow" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerVertical="true"
+                            android:layout_toLeftOf="@id/check_trade_recode_arrow"
+                            android:background="@color/transparent"
+                            android:text="@string/tongbao_check_total_profit"
+                            android:textColor="#ffffc2b2"
+                            android:textSize="@dimen/common_font_size_smaller_plus" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_tb_amount"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:id="@+id/income_component"
+                        android:layout_width="0.0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        android:background="@color/white"
+                        android:paddingBottom="@dimen/myasset_income_layout_padding_bottom"
+                        android:paddingTop="@dimen/common_view_large_padding">
+
+                        <TextView
+                            android:id="@+id/tongbao_total_assets_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/myasset_head_margin_left"
+                            android:background="@color/transparent"
+                            android:text="@string/tongbao_available_assets_unit"
+                            android:textColor="@color/gray_light"
+                            android:textSize="@dimen/common_font_size_small" />
+
+                        <TextView
+                            android:id="@+id/tongbao_total_assets_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignLeft="@id/tongbao_total_assets_text"
+                            android:layout_below="@id/tongbao_total_assets_text"
+                            android:background="@color/transparent"
+                            android:includeFontPadding="false"
+                            android:text="@string/zore_assets"
+                            android:textColor="@color/yellow_chocolate"
+                            android:textSize="@dimen/tb_amount_size" />
+                    </RelativeLayout>
+
+                    <View
+                        android:id="@+id/temp_devide_view"
+                        android:layout_width="1.0px"
+                        android:layout_height="fill_parent"
+                        android:layout_marginBottom="10.0dip"
+                        android:layout_marginTop="10.0dip"
+                        android:background="#33600000" />
+
+                    <RelativeLayout
+                        android:id="@+id/locked_amount_component"
+                        android:layout_width="0.0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        android:background="@color/white"
+                        android:paddingBottom="@dimen/myasset_income_layout_padding_bottom"
+                        android:paddingTop="@dimen/common_view_large_padding"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/tongbao_lock_amount_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/myasset_head_margin_left"
+                            android:background="@color/transparent"
+                            android:text="@string/tongbao_lock_amount_unit"
+                            android:textColor="@color/gray_light"
+                            android:textSize="@dimen/common_font_size_small" />
+
+                        <com.robot.tongbanjie.widget.GradientTextView
+                            android:id="@+id/tongbao_lock_amount_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignLeft="@id/tongbao_lock_amount_text"
+                            android:layout_below="@id/tongbao_lock_amount_text"
+                            android:background="@color/transparent"
+                            android:includeFontPadding="false"
+                            android:text="@string/zore_assets"
+                            android:textColor="@color/gray_light4"
+                            android:textSize="@dimen/tb_amount_size" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1.0px"
+                    android:background="@color/divider_color" />
+
+                <LinearLayout
+                    android:id="@+id/tongbao_activity_link"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/common_view_small_margin"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="@dimen/tb_notify_size"
+                            android:layout_height="@dimen/tb_notify_size"
+                            android:background="@color/tb_check_trade_record_color"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/icon_tongbao_notify"
+                                android:contentDescription="@null" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/tb_msg"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|left"
+                            android:layout_marginLeft="@dimen/indicator_right_padding"
+                            android:text="投资万元，每日可得万分收益显示收益"
+                            android:textColor="@color/tb_check_trade_record_color"
+                            android:textSize="@dimen/common_font_size_small" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1.0px"
+                        android:background="@color/divider_color" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/common_view_small_margin"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:id="@+id/seven_annual_rate"
+                            android:layout_width="0.0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.0"
+                            android:background="@drawable/selector_tb_chart"
+                            android:orientation="vertical"
+                            android:paddingBottom="@dimen/common_view_small_margin"
+                            android:paddingLeft="@dimen/more_item_menu_padding_left"
+                            android:paddingTop="@dimen/commend_middle_blank_space_height">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="七日年化"
+                                android:textColor="@color/gray_light4"
+                                android:textSize="@dimen/common_font_size_small" />
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/common_view_small_margin">
+
+                                <TextView
+                                    android:id="@+id/seven_day_value"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="3.51"
+                                    android:textColor="@color/tb_check_trade_record_color"
+                                    android:textSize="@dimen/commend_top_content_padding_top" />
+
+                                <TextView
+                                    android:id="@+id/percent"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignBaseline="@id/seven_day_value"
+                                    android:layout_marginLeft="@dimen/common_view_small_margin"
+                                    android:layout_toRightOf="@id/seven_day_value"
+                                    android:includeFontPadding="false"
+                                    android:textColor="@color/tb_check_trade_record_color"
+                                    android:textSize="@dimen/common_font_size_large" />
+                            </RelativeLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ten_thousand_income"
+                            android:layout_width="0.0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.0"
+                            android:background="@drawable/selector_tb_chart"
+                            android:orientation="vertical"
+                            android:paddingBottom="@dimen/common_view_small_margin"
+                            android:paddingLeft="@dimen/more_item_menu_padding_left"
+                            android:paddingTop="@dimen/commend_middle_blank_space_height">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="万份收益"
+                                android:textColor="@color/gray_light4"
+                                android:textSize="@dimen/common_font_size_small" />
+
+                            <TextView
+                                android:id="@+id/million_copies_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1.0176"
+                                android:layout_marginTop="@dimen/common_view_small_margin"
+                                android:textColor="@color/gray_light4"
+                                android:textSize="@dimen/commend_top_content_padding_top" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/lineChart"
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp" />
+                </LinearLayout>
+
+                <include
+                    android:id="@+id/about_tongbao"
+                    layout="@layout/include_tongbao_info"></include>
+            </LinearLayout>
+        </ScrollView>
+    </in.srain.cube.views.ptr.PtrClassicFrameLayout>
+</LinearLayout>

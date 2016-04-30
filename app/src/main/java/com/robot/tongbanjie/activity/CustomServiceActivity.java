@@ -11,7 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.robot.tongbanjie.R;
-import com.robot.tongbanjie.dialog.TipsDialog;
+import com.robot.tongbanjie.dialog.CommonDialog;
 import com.robot.tongbanjie.util.ClipboardUtils;
 import com.robot.tongbanjie.util.IntentUtils;
 import com.robot.tongbanjie.widget.CommonItem;
@@ -104,10 +104,10 @@ public class CustomServiceActivity extends BaseActivity implements OnClickListen
 	public void onClick(View view) {
 		switch (view.getId()) {
 			case R.id.call_btn:
-				new TipsDialog(this).builder().setTitle("提示")
+				new CommonDialog(this).builder().setTitle("提示")
 						.setContentMsg("拨打铜板街客服电话")
 						.setNegativeBtn("取消", null)
-						.setPositiveBtn("确定", new TipsDialog.OnPositiveListener() {
+						.setPositiveBtn("确定", new CommonDialog.OnPositiveListener() {
 							@Override
 							public void onPositive(View view) {
 								IntentUtils.gotoCall(CustomServiceActivity.this, mPhoneNumber.getText().toString());

@@ -94,4 +94,18 @@
         <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
         <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
     </style>
+    <style name="CustomDarkDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item><!--activity不变暗-->
+        <item name="android:background">@color/transparent</item>
+        <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
+    </style>
+    <style name="KeyboardDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:backgroundDimEnabled">false</item><!--activity不变暗-->
+        <item name="android:background">@color/transparent</item>
+        <item name="android:windowEnterAnimation">@anim/keyboard_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/keyboard_bottom_out</item>
+    </style>
 </resources>

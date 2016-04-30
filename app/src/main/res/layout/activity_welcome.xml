@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_welcome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="0x0"
+            android:scaleType="fitStart" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/jump_btn"
+        android:layout_width="50dp"
+        android:layout_height="32dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/shape_bg_gray"
+        android:gravity="center"
+        android:text="跳过"
+        android:textColor="@drawable/welcome_jump_font_style"
+        android:textSize="@dimen/common_font_size_small"
+        android:visibility="visible" />
+
+    <RelativeLayout
+        android:id="@+id/bottom_img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/icon_welcome_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="0x0"
+            android:src="@drawable/icon_welcome" />
+    </RelativeLayout>
+</RelativeLayout>
