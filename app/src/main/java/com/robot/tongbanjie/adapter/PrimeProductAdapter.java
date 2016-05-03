@@ -7,11 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.robot.tongbanjie.R;
+import com.robot.tongbanjie.activity.DetailProductActivity;
 import com.robot.tongbanjie.entity.PrimeProduct;
 
 import java.util.List;
@@ -36,7 +35,7 @@ public class PrimeProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == ITEM_TYPE_COMMON) {
-            return new ProductViewHolder(mLayoutInflater.inflate(R.layout.list_item_prime_product, parent, false));
+            return new ProductViewHolder(mContext, mLayoutInflater.inflate(R.layout.list_item_prime_product, parent, false));
 //            return new ProductViewHolder(mLayoutInflater.inflate(R.layout.list_item_prime_product, null));
         } else {
             return new BottomHolder(mLayoutInflater.inflate(R.layout.list_item_prime_product_bottom, parent, false));
@@ -82,13 +81,14 @@ public class PrimeProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         @Bind(R.id.txt_buy_now)
         TextView mTextView;
 
-        ProductViewHolder(View view) {
+        ProductViewHolder(final Context context, View view) {
             super(view);
             ButterKnife.bind(this, view);
 
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    DetailProductActivity.start(context);
                     Log.d("ImageViewHolder", "onClick--> position = " + getPosition());
                 }
             });

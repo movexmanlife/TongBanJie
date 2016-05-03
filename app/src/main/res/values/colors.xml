@@ -48,6 +48,7 @@
 
     <color name="txt_red">#d1564f</color>
     <color name="txt_gray">#999999</color>
+    <color name="txt_dark_gray">#434343</color>
     <color name="red_light10">#fff95749</color>
     <color name="red_light5">#ffd1564f</color>
     <color name="vertical_divider_color">#ffefefef</color>
@@ -68,4 +69,6 @@
     <color name="slash_line_color">#ff663f</color>
     <color name="chart_fill_color">#ffece7</color>
     <color name="black_overlay">#60000000</color>
+    <color name="buy_normal">#bd4e48</color>
+    <color name="buy_pressed">#752c2c</color>
 </resources>
