@@ -42,4 +42,5 @@
     <dimen name="more_item_menu_padding_top">14.0dip</dimen>
     <dimen name="financing_item_padding">9.0dip</dimen>
     <dimen name="myasset_emptymsg_margin_top">40.0dip</dimen>
+    <dimen name="txt_arrow">10dp</dimen>
 </resources>

@@ -164,7 +164,7 @@ public class DragLayout extends ViewGroup {
 
 				// 下一页可以初始化了
 				if (null != nextPageListener) {
-					nextPageListener.onDragNext();
+					nextPageListener.onDragNext(1);
 				}
 			}
 		} else {
@@ -173,6 +173,11 @@ public class DragLayout extends ViewGroup {
 					|| (downTop1 == -viewHeight && releasedChild.getTop() > DISTANCE_THRESHOLD)) {
 				// 保持原地不动
 				finalTop = viewHeight;
+
+				// 上一页
+				if (null != nextPageListener) {
+					nextPageListener.onDragNext(0);
+				}
 			}
 		}
 
@@ -272,6 +277,6 @@ public class DragLayout extends ViewGroup {
 	}
 
 	public interface ShowNextPageNotifier {
-		public void onDragNext();
+		public void onDragNext(int pageIndex);
 	}
 }

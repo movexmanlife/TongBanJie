@@ -221,9 +221,9 @@ public class TongbaoActivity extends BaseActivity implements OnClickListener {
         for (int i = 0; i < count; i++) {
             yVals.add(new Entry(datas.get(i), i));
         }
-        LineDataSet lineDataSet = new LineDataSet(yVals, "DataSet 1");
+        LineDataSet lineDataSet = new LineDataSet(yVals, null);
         lineDataSet.setDrawCubic(false);
-        lineDataSet.setLabel("fffffffff");
+//        lineDataSet.setLabel("fffffffff");
         lineDataSet.setDrawCircleHole(false);
         lineDataSet.setColor(getResources().getColor(R.color.slash_line_color));
         lineDataSet.setCircleColor(ColorTemplate.rgb("#000000"));

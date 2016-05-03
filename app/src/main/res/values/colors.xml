@@ -31,6 +31,7 @@
     <color name="black_common">#ff434343</color>
     <color name="red_pres">#ffd1564f</color>
     <color name="gray_light4">#ff999999</color>
+    <color name="divider_selection">#f2f2f2</color>
     <color name="dialog_tips_bg">#eeeeee</color>
     <color name="dialog_tips_btn">#d6d6d6</color>
     <color name="dialog_tips_line">#c6c6c6</color>

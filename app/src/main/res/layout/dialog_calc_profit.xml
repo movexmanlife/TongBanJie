@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_bg_dialog"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="计算收益"
+            android:textColor="@color/black_common"
+            android:textSize="@dimen/common_font_size_large" />
+
+        <ImageView
+            android:id="@+id/cancel"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:contentDescription="0x0"
+            android:scaleType="center"
+            android:src="@drawable/icon_dialog_close" />
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/devider1"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#c9c8cd" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:paddingTop="10dp">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0">
+
+            <ImageView
+                android:id="@+id/purchase_amount_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10dp"
+                android:contentDescription="0x0"
+                android:src="@drawable/icon_amount" />
+
+            <EditText
+                android:id="@+id/purchase_amount_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:layout_toLeftOf="@+id/unit"
+                android:layout_toRightOf="@id/purchase_amount_img"
+                android:background="@color/transparent"
+                android:ems="10"
+                android:focusable="true"
+                android:gravity="right|center_vertical"
+                android:hint="金额"
+                android:inputType="number"
+                android:maxLength="16"
+                android:paddingLeft="10dp"
+                android:singleLine="true"
+                android:textSize="@dimen/common_font_size_small" />
+
+            <TextView
+                android:id="@+id/unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="元"
+                android:textColor="#ff434343"
+                android:textSize="@dimen/common_font_size_small" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="#c9c8cd" />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:contentDescription="0x0"
+                android:src="@drawable/icon_period" />
+
+            <EditText
+                android:id="@+id/days_maturity_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_toLeftOf="@+id/unit1"
+                android:background="@color/transparent"
+                android:digits="0123456789"
+                android:ems="10"
+                android:focusable="true"
+                android:gravity="right|center_vertical"
+                android:hint="期限"
+                android:inputType="number"
+                android:maxLength="16"
+                android:paddingLeft="10dp"
+                android:singleLine="true"
+                android:textSize="@dimen/common_font_size_small_plus" />
+
+            <TextView
+                android:id="@+id/unit1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:text="天"
+                android:textColor="#ff434343"
+                android:textSize="@dimen/common_font_size_small" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginBottom="10dp"
+        android:background="#c9c8cd" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:text="产品预期收益(元)"
+            android:textColor="#ff434343"
+            android:textSize="@dimen/common_font_size_small" />
+
+        <TextView
+            android:id="@+id/product_calc_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:text="0.00"
+            android:textColor="#c44b4b"
+            android:textSize="@dimen/common_font_size_small" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/calc_earnings_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/selector_redbtn"
+        android:text="计算"
+        android:textColor="@color/white"
+        android:textSize="@dimen/common_font_size_small_plus" />
+</LinearLayout>

@@ -40,12 +40,14 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/calc_profit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
             android:src="@drawable/btn_calc_sel"/>
 
         <LinearLayout
+            android:id="@+id/buy_layout"
             android:clickable="true"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
