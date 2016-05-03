@@ -72,4 +72,5 @@
     <color name="black_overlay">#60000000</color>
     <color name="buy_normal">#bd4e48</color>
     <color name="buy_pressed">#752c2c</color>
+    <color name="txt_buy_now">#d9d9d9</color>
 </resources>

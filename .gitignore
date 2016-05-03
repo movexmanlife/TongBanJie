@@ -6,3 +6,7 @@
 .DS_Store
 /build
 /captures
+/app/build.gradle
+/ultra_pull_refresh_lib/build.gradle
+/app/app.iml
+/app/*.gradle

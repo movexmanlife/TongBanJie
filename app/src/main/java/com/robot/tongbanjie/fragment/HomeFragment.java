@@ -83,32 +83,32 @@ public class HomeFragment extends BaseFragment {
         mDatas.add(product);
 
         PrimeProduct product2 = new PrimeProduct();
-        product2.productName = "新手专享163期";
-        product2.productDesc = "注册理财金可用-限APP";
+        product2.productName = "新手专享221期";
+        product2.productDesc = "1元起购";
         product2.annualRate = "预期年化";
-        product2.annualRateValue = 12.00f;
+        product2.annualRateValue = 18.00f;
         product2.operator = "立即抢购";
-        product2.timeLimit = 7;
+        product2.timeLimit = 43;
         product2.isNowBuy = true;
         mDatas.add(product2);
 
         PrimeProduct product3 = new PrimeProduct();
-        product3.productName = "新手专享163期";
-        product3.productDesc = "注册理财金可用-限APP";
+        product3.productName = "一铜金A1257期";
+        product3.productDesc = "仅限购宝购买";
         product3.annualRate = "预期年化";
-        product3.annualRateValue = 12.00f;
+        product3.annualRateValue = 6.00f;
         product3.operator = "立即抢购";
-        product3.timeLimit = 7;
+        product3.timeLimit = 28;
         product3.isNowBuy = false;
         mDatas.add(product3);
 
         PrimeProduct product4 = new PrimeProduct();
-        product4.productName = "新手专享163期";
-        product4.productDesc = "注册理财金可用-限APP";
+        product4.productName = "一铜天下1310期";
+        product4.productDesc = "抢购";
         product4.annualRate = "预期年化";
-        product4.annualRateValue = 12.00f;
+        product4.annualRateValue = 5.80f;
         product4.operator = "立即抢购";
-        product4.timeLimit = 7;
+        product4.timeLimit = 20;
         product4.isNowBuy = false;
         mDatas.add(product4);
 

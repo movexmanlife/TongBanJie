@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.robot.tongbanjie.R;
@@ -48,12 +49,16 @@ public class PrimeProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         if (holder instanceof ProductViewHolder) {
             ProductViewHolder productViewHolder = (ProductViewHolder) holder;
             PrimeProduct product = mDatas.get(position);
+            productViewHolder.mName.setText(product.productName);
+            productViewHolder.mDesc.setText(product.productDesc);
+            productViewHolder.mYearEpr.setText(String.valueOf(product.annualRateValue));
+            productViewHolder.mTimeLimit.setText(String.valueOf(product.timeLimit));
             if (product.isNowBuy) {
-                productViewHolder.mButton.setVisibility(View.VISIBLE);
-                productViewHolder.mTextView.setVisibility(View.GONE);
+                productViewHolder.mBuyNowLayout.setVisibility(View.VISIBLE);
+                productViewHolder.mBuyNowLayout2.setVisibility(View.GONE);
             } else {
-                productViewHolder.mButton.setVisibility(View.GONE);
-                productViewHolder.mTextView.setVisibility(View.VISIBLE);
+                productViewHolder.mBuyNowLayout.setVisibility(View.GONE);
+                productViewHolder.mBuyNowLayout2.setVisibility(View.VISIBLE);
             }
         } else if (holder instanceof BottomHolder) {
             BottomHolder bottomHolder = (BottomHolder) holder;
@@ -76,16 +81,40 @@ public class PrimeProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     public static class ProductViewHolder extends RecyclerView.ViewHolder {
+        @Bind(R.id.name)
+        TextView mName;
+        @Bind(R.id.desc)
+        TextView mDesc;
+        @Bind(R.id.year_epr)
+        TextView mYearEpr;
+        @Bind(R.id.time_limit)
+        TextView mTimeLimit;
+        @Bind(R.id.buy_now_layout)
+        LinearLayout mBuyNowLayout;
         @Bind(R.id.btn_buy_now)
-        Button mButton;
-        @Bind(R.id.txt_buy_now)
-        TextView mTextView;
+        Button mBuyNowBtn;
+        @Bind(R.id.buy_now_layout2)
+        LinearLayout mBuyNowLayout2;
 
         ProductViewHolder(final Context context, View view) {
             super(view);
             ButterKnife.bind(this, view);
 
             view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DetailProductActivity.start(context);
+                    Log.d("ImageViewHolder", "onClick--> position = " + getPosition());
+                }
+            });
+            mBuyNowBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DetailProductActivity.start(context);
+                    Log.d("ImageViewHolder", "onClick--> position = " + getPosition());
+                }
+            });
+            mBuyNowLayout2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     DetailProductActivity.start(context);
