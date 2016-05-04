@@ -14,7 +14,8 @@
 
 <img height="720" src="https://github.com/robotlife/tongbanjie_picture/blob/master/%E4%BD%93%E9%87%8D%E8%AE%BE%E7%BD%AE.png"/>
 <img height="720" src="https://github.com/robotlife/tongbanjie_picture/blob/master/%E4%BF%AE%E6%94%B9%E4%BA%A4%E6%98%93%E5%AF%86%E7%A0%81.png"/>
-<img height="720" src="https://github.com/robotlife/tongbanjie_picture/blob/master/%E5%9B%9E%E6%AC%BE%E8%B7%AF%E5%BE%84.pn%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98.png"/>
+<img height="720" src="https://github.com/robotlife/tongbanjie_picture/blob/master/%E5%9B%9E%E6%AC%BE%E8%B7%AF%E5%BE%84.png"/>
+<img height="720" src="https://github.com/robotlife/tongbanjie_picture/blob/master/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98.png"/>
 <img height="720" src="https://github.com/robotlife/tongbanjie_picture/blob/master/%E5%B9%B4%E9%BE%84%E8%AE%BE%E7%BD%AE.%E6%89%8B%E5%8A%BF%E5%AF%86%E7%A0%81.png"/>
 
 <img height="720" src="https://github.com/robotlife/tongbanjie_picture/blob/master/%E6%8B%A8%E6%89%93%E7%94%B5%E8%AF%9D.%E6%8C%87%E7%A4%BA%E9%A1%B52.png"/>
