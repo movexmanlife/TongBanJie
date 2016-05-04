@@ -2,6 +2,8 @@
 高仿铜板街
 
 <img height="720" src="https://github.com/robotlife/tongbanjie_picture/blob/master/%E5%BC%95%E5%AF%BC%E9%A1%B5.png"/>
+<img height="720" src="https://github.com/robotlife/tongbanjie_picture/blob/master/%E6%8C%87%E7%A4%BA%E9%A1%B51.png"/>
+<img height="720" src="https://github.com/robotlife/tongbanjie_picture/blob/master/%E6%8C%87%E7%A4%BA%E9%A1%B52.png"/>
 <img height="720" src="https://github.com/robotlife/tongbanjie_picture/blob/master/%E9%A6%96%E9%A1%B5.png"/>
 <img height="720" src="https://github.com/robotlife/tongbanjie_picture/blob/master/%E9%A6%96%E9%A1%B5.png"/>
 <img height="720" src="https://github.com/robotlife/tongbanjie_picture/blob/master/%E6%8A%95%E8%B5%84.png"/>
@@ -20,7 +22,6 @@
 <img height="720" src="https://github.com/robotlife/tongbanjie_picture/blob/master/%E6%89%8B%E5%8A%BF%E5%AF%86%E7%A0%81.png"/>
 
 <img height="720" src="https://github.com/robotlife/tongbanjie_picture/blob/master/%E6%8B%A8%E6%89%93%E7%94%B5%E8%AF%9D.png"/>
-<img height="720" src="https://github.com/robotlife/tongbanjie_picture/blob/master/%E6%8C%87%E7%A4%BA%E9%A1%B52.png"/>
 <img height="720" src="https://github.com/robotlife/tongbanjie_picture/blob/master/%E6%96%B0%E6%89%8B%E4%B8%93%E4%BA%AB.png"/>
 <img height="720" src="https://github.com/robotlife/tongbanjie_picture/blob/master/%E6%96%B0%E6%89%8B%E6%A0%87.png"/>
 <img height="720" src="https://github.com/robotlife/tongbanjie_picture/blob/master/%E6%96%B0%E6%89%8B%E6%A0%872.png"/>
