@@ -33,8 +33,6 @@ public class TradePwdModifyActivity extends BaseActivity implements OnClickListe
     @Bind(R.id.input_pwd_view)
     InputPasswordView inputPasswordView;
     PwdDialogFragment pwdDialogFragment;
-    @Bind(R.id.edittext)
-    EditText edittext;
 
     public static void start(Context context) {
         Intent intent = new Intent(context, TradePwdModifyActivity.class);
@@ -76,30 +74,9 @@ public class TradePwdModifyActivity extends BaseActivity implements OnClickListe
 
     @Override
     public void setListener() {
-        edittext.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (pwdDialogFragment != null) {
-                    if (pwdDialogFragment != null && pwdDialogFragment.getDialog() != null
-                            && pwdDialogFragment.getDialog().isShowing()) {
-                        pwdDialogFragment.dismiss();
-
-                        v.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                if (!isFinishing()) {
-                                    SoftKeyboardUtils.showKeyboard(TradePwdModifyActivity.this);
-                                }
-                            }
-                        }, 50);
-                    }
-                }
-            }
-        });
         inputPasswordView.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                SoftKeyboardUtils.hideKeyboard(TradePwdModifyActivity.this);
 
                 if (pwdDialogFragment == null) {
                     pwdDialogFragment = PwdDialogFragment.newInstance(TradePwdModifyActivity.this, null, 0);
