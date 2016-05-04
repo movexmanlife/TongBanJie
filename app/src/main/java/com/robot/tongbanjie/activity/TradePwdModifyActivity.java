@@ -115,6 +115,7 @@ public class TradePwdModifyActivity extends BaseActivity implements OnClickListe
                 }
             }
         });
+
     }
 
     @Override

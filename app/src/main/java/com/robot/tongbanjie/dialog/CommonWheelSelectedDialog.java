@@ -98,28 +98,30 @@ public class CommonWheelSelectedDialog extends BaseWheelFragment {
             setSelectioned(mSelectioned);
             if (mType == TYPE_TALL) {
                 currentItem = mSelectioned.replace(UNIT_TALL, "").trim(); // currentItem不带单位
+            } else {
+                currentItem = mSelectioned;
             }
         } else {
             wheelView.setSeletion(1);
         }
         if (mType == TYPE_GENDER) {
             wheelView.setItems(Arrays.asList(getGenderDatas()));
-            if (!TextUtils.isEmpty(mSelectioned)) {
+            if (TextUtils.isEmpty(mSelectioned)) {
                 currentItem = mGenderArray[1];
             }
         } else if (mType == TYPE_AGE) {
             wheelView.setItems(Arrays.asList(getAgeDatas()));
-            if (!TextUtils.isEmpty(mSelectioned)) {
+            if (TextUtils.isEmpty(mSelectioned)) {
                 currentItem = mAgeArray[1];
             }
         } else if (mType == TYPE_TALL) {
             wheelView.setItems(Arrays.asList(getTallDatas()));
-            if (!TextUtils.isEmpty(mSelectioned)) {
+            if (TextUtils.isEmpty(mSelectioned)) {
                 currentItem = mTallArray[1];
             }
         } else {
             wheelView.setItems(Arrays.asList(getGenderDatas()));
-            if (!TextUtils.isEmpty(mSelectioned)) {
+            if (TextUtils.isEmpty(mSelectioned)) {
                 currentItem = mGenderArray[1];
             }
         }
