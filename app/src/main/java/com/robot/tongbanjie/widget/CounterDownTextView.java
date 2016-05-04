@@ -78,6 +78,8 @@ public class CounterDownTextView extends TextView implements OnClickListener{
 				R.styleable.CountDownTextView);
 		mFinishTextColor = array.getColor(R.styleable.CountDownTextView_finishTextColor, DEFAULT_FINISH_COLOR);
 		mTickTextColor = array.getColor(R.styleable.CountDownTextView_tickTextColor, DEFAULT_TICK_TEXT_COLOR);
+		mTotalTime = array.getColor(R.styleable.CountDownTextView_totalTime, DEFAULT_TOTAL_TIME);
+		mIntervalTime = array.getColor(R.styleable.CountDownTextView_intervalTime, DEFAULT_INTERVAL_TIME);
 		array.recycle();
 
 		setDefaultStatus();
@@ -162,20 +164,20 @@ public class CounterDownTextView extends TextView implements OnClickListener{
 		return mTickTextPrefix + leftTime + mTickTextPostfix;
 	}
 
-	public String getmFinishText() {
+	public String getFinishText() {
 		return mFinishText;
 	}
 
-	public void setmFinishText(String mFinishText) {
-		this.mFinishText = mFinishText;
+	public void setFinishText(String finishText) {
+		this.mFinishText = finishText;
 	}
 
-	public String getmTickTextPrefix() {
+	public String getTickTextPrefix() {
 		return mTickTextPrefix;
 	}
 
-	public void setmTickTextPrefix(String mTickTextPrefix) {
-		this.mTickTextPrefix = mTickTextPrefix;
+	public void setTickTextPrefix(String tickTextPrefix) {
+		this.mTickTextPrefix = tickTextPrefix;
 	}
 
 	public String getTickTextPostfix() {
@@ -186,7 +188,7 @@ public class CounterDownTextView extends TextView implements OnClickListener{
 		this.mTickTextPostfix = tickTextPostfix;
 	}
 
-	public int getmFinishTextColor() {
+	public int getFinishTextColor() {
 		return mFinishTextColor;
 	}
 
@@ -194,7 +196,7 @@ public class CounterDownTextView extends TextView implements OnClickListener{
 		this.mFinishTextColor = finishTextColor;
 	}
 
-	public int getmTickTextColor() {
+	public int getTickTextColor() {
 		return mTickTextColor;
 	}
 
@@ -202,19 +204,19 @@ public class CounterDownTextView extends TextView implements OnClickListener{
 		this.mTickTextColor = tickTextColor;
 	}
 
-	public int getmTotalTime() {
+	public int getTotalTime() {
 		return mTotalTime;
 	}
 
-	public void setmTotalTime(int totalTime) {
+	public void setTotalTime(int totalTime) {
 		this.mTotalTime = totalTime;
 	}
 
-	public int getmIntervalTime() {
+	public int getIntervalTime() {
 		return mIntervalTime;
 	}
 
-	public void setmIntervalTime(int intervalTime) {
+	public void setIntervalTime(int intervalTime) {
 		this.mIntervalTime = intervalTime;
 	}
 

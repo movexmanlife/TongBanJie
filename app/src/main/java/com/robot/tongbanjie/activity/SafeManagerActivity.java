@@ -100,7 +100,7 @@ public class SafeManagerActivity extends BaseActivity implements OnClickListener
 				TradePwdModifyActivity.start(this);
 				break;
 			case R.id.safe_manager_retrieve_pwd:
-
+				FindPasswdActivity.start(this);
 				break;
 			case R.id.safe_manager_lock_pattern:
 				LockPatternGuideActivity.start(this);

@@ -74,4 +74,5 @@ public final class SettingSharedPreUtils implements SharedPreferencesImpl {
     public static void setGuideState(Context context, boolean isGuide) {
         SettingSharedPreUtils.getInstance().put(context, KEY_GUIDE, isGuide);
     }
+
 }
