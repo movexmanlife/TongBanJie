@@ -6,27 +6,31 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.robot.tongbanjie.R;
-import com.robot.tongbanjie.util.DensityUtils;
+import com.robot.tongbanjie.activity.InvestPeopleActivity;
+import com.robot.tongbanjie.entity.InvestPeople;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
  */
-public class DetailProductFragment extends BaseFragment {
+public class TopDetailProductFragment extends BaseFragment implements View.OnClickListener {
 
     @Bind(R.id.txt_arrow)
     TextView txtArrow;
+    @Bind(R.id.invest_number_layout)
+    LinearLayout investNumberLayout;
 
     public enum Direction {
         Up, Down
     }
 
-    public static DetailProductFragment newInstance() {
-        DetailProductFragment fragment = new DetailProductFragment();
+    public static TopDetailProductFragment newInstance() {
+        TopDetailProductFragment fragment = new TopDetailProductFragment();
         return fragment;
     }
 
@@ -53,7 +57,16 @@ public class DetailProductFragment extends BaseFragment {
 
     @Override
     public void setListener() {
+        investNumberLayout.setOnClickListener(this);
+    }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.invest_number_layout:
+                InvestPeopleActivity.start(getActivity());
+                break;
+        }
     }
 
     public void setPageIndicator(Direction direction) {

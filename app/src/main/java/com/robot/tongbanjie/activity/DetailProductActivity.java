@@ -13,9 +13,8 @@ import android.widget.LinearLayout;
 import com.robot.tongbanjie.R;
 import com.robot.tongbanjie.dialog.BigLoadingDialog;
 import com.robot.tongbanjie.dialog.CalcProfitDialog;
-import com.robot.tongbanjie.dialog.LoadingDialog;
-import com.robot.tongbanjie.fragment.DetailProductFragment;
-import com.robot.tongbanjie.fragment.DetailProductFragment2;
+import com.robot.tongbanjie.fragment.TopDetailProductFragment;
+import com.robot.tongbanjie.fragment.BottomDetailProductFragment;
 import com.robot.tongbanjie.widget.TitleBarView;
 import com.stone.verticalslide.DragLayout;
 
@@ -28,18 +27,18 @@ public class DetailProductActivity extends BaseActivity implements OnClickListen
 
     @Bind(R.id.titlebar)
     TitleBarView mTitleBar;
-    @Bind(R.id.detail_first)
-    FrameLayout detailFirst;
-    @Bind(R.id.detail_second)
-    FrameLayout detailSecond;
+    @Bind(R.id.top_detail_product_layout)
+    FrameLayout mTopDetailProductLayout;
+    @Bind(R.id.bottom_detail_product_layout)
+    FrameLayout mBottomDetailProductLayout;
     @Bind(R.id.draglayout)
     DragLayout draglayout;
     @Bind(R.id.calc_profit)
     ImageView mCalcProfit;
     @Bind(R.id.buy_layout)
     LinearLayout buyLayout;
-    private DetailProductFragment detailProductFragment;
-    private DetailProductFragment2 detailProductFragment2;
+    private TopDetailProductFragment mTopDetailProductFragment;
+    private BottomDetailProductFragment mBottomDetailProductFragment;
 
     private BigLoadingDialog mBigLoadingDialog;
     private CalcProfitDialog mCalcProfitDialog;
@@ -75,21 +74,21 @@ public class DetailProductActivity extends BaseActivity implements OnClickListen
 
     @Override
     public void initView() {
-        detailProductFragment = new DetailProductFragment();
-        detailProductFragment2 = new DetailProductFragment2();
+        mTopDetailProductFragment = new TopDetailProductFragment();
+        mBottomDetailProductFragment = new BottomDetailProductFragment();
 
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.detail_first, detailProductFragment).add(R.id.detail_second, detailProductFragment2)
+                .add(R.id.top_detail_product_layout, mTopDetailProductFragment).add(R.id.bottom_detail_product_layout, mBottomDetailProductFragment)
                 .commit();
 
         DragLayout.ShowNextPageNotifier nextIntf = new DragLayout.ShowNextPageNotifier() {
             @Override
             public void onDragNext(int pageIndex) {
                 if (pageIndex == 1) {
-                    detailProductFragment2.beginLoadData();
-                    detailProductFragment.setPageIndicator(DetailProductFragment.Direction.Down);
+                    mBottomDetailProductFragment.beginLoadData();
+                    mTopDetailProductFragment.setPageIndicator(TopDetailProductFragment.Direction.Down);
                 } else {
-                    detailProductFragment.setPageIndicator(DetailProductFragment.Direction.Up);
+                    mTopDetailProductFragment.setPageIndicator(TopDetailProductFragment.Direction.Up);
                 }
             }
         };

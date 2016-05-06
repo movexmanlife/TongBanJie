@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.robot.tongbanjie.R;
-import com.robot.tongbanjie.activity.AddBankCardActivity;
+import com.robot.tongbanjie.activity.BankCardAddActivity;
 import com.robot.tongbanjie.activity.EvaluateRiskActivity;
 import com.robot.tongbanjie.activity.FeedbackActivity;
 import com.robot.tongbanjie.activity.HelpAndFeedbackActivity;
@@ -157,7 +157,7 @@ public class MoreFragment extends BaseFragment implements OnClickListener {
 						.setPositiveBtn("添加银行卡", new CommonDialog.OnPositiveListener() {
 							@Override
 							public void onPositive(View view) {
-                                AddBankCardActivity.start(getActivity());
+                                BankCardAddActivity.start(getActivity());
 							}
 						})
 						.show();

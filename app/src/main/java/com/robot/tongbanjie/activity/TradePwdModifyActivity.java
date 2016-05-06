@@ -1,25 +1,15 @@
 package com.robot.tongbanjie.activity;
 
-import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.robot.tongbanjie.R;
 import com.robot.tongbanjie.dialog.PwdDialogFragment;
-import com.robot.tongbanjie.dialog.ShareDialogFragment;
-import com.robot.tongbanjie.util.SoftKeyboardUtils;
 import com.robot.tongbanjie.widget.InputPasswordView;
-import com.robot.tongbanjie.widget.SafeKeyboardView;
 import com.robot.tongbanjie.widget.TitleBarView;
 
 import butterknife.Bind;
@@ -77,7 +67,6 @@ public class TradePwdModifyActivity extends BaseActivity implements OnClickListe
         inputPasswordView.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 if (pwdDialogFragment == null) {
                     pwdDialogFragment = PwdDialogFragment.newInstance(TradePwdModifyActivity.this, null, 0);
                     pwdDialogFragment.setOnAddListener(inputPasswordView);

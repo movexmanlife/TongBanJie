@@ -22,7 +22,7 @@ import butterknife.ButterKnife;
 
 /**
  */
-public class DetailProductFragment2 extends BaseFragment {
+public class BottomDetailProductFragment extends BaseFragment {
     @Bind(R.id.tab_title)
     TabLayout tabTitle;
     @Bind(R.id.view_pager)
@@ -33,8 +33,8 @@ public class DetailProductFragment2 extends BaseFragment {
     private List<String> listTitle;
     private FindTabAdapter mAdapter;
 
-    public static DetailProductFragment2 newInstance() {
-        DetailProductFragment2 fragment = new DetailProductFragment2();
+    public static BottomDetailProductFragment newInstance() {
+        BottomDetailProductFragment fragment = new BottomDetailProductFragment();
         return fragment;
     }
 

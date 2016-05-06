@@ -1,0 +1,38 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/content_backgroud"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <com.robot.tongbanjie.widget.TitleBarView
+        android:id="@+id/titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!--ptr_resistance，阻尼系数，默认:1.7f，越大，感觉下拉时越吃力。
+              ptr_ratio_of_header_height_to_refresh，触发刷新时移动的位置比例，默认，1.2f，移动达到头部高度 1.2 倍时可触发刷新操作。
+              ptr_duration_to_close，回弹延时，默认200ms，回弹到刷新高度所用时间。
+              ptr_duration_to_close_header，头部回弹时间，默认1000ms。
+              ptr_pull_to_fresh，下拉刷新 / 释放刷新，默认为释放刷新。
+              ptr_keep_header_when_refresh，刷新是否保持头部，默认值true。-->
+    <in.srain.cube.views.ptr.PtrClassicFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:cube_ptr="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/id_ptr_classic_frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        cube_ptr:ptr_duration_to_close="200"
+        cube_ptr:ptr_duration_to_close_header="700"
+        cube_ptr:ptr_keep_header_when_refresh="true"
+        cube_ptr:ptr_pull_to_fresh="false"
+        cube_ptr:ptr_ratio_of_header_height_to_refresh="1.1"
+        cube_ptr:ptr_resistance="1.8">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </in.srain.cube.views.ptr.PtrClassicFrameLayout>
+
+</LinearLayout>

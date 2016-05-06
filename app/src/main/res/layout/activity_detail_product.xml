@@ -17,12 +17,12 @@
         android:layout_weight="1">
 
         <FrameLayout
-            android:id="@+id/detail_first"
+            android:id="@+id/top_detail_product_layout"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent" />
 
         <FrameLayout
-            android:id="@+id/detail_second"
+            android:id="@+id/bottom_detail_product_layout"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent" />
     </com.stone.verticalslide.DragLayout>

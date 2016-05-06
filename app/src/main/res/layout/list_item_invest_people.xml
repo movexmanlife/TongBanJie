@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/invest_people_sel"
+    android:clickable="true"
+    android:orientation="horizontal"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="138******09"
+            android:textColor="#666666"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/icon"
+            android:layout_toRightOf="@+id/icon"
+            android:paddingBottom="5dp"
+            android:text="2016-05-06 09:11"
+            android:textColor="#999999"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/sum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:text="15000.00"
+        android:textColor="#434343"
+        android:textSize="16sp" />
+
+</LinearLayout>

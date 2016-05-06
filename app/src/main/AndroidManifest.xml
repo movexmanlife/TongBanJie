@@ -43,10 +43,6 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".activity.BankCardAddActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity
             android:name=".activity.BankCardSelectedActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"></activity>
@@ -161,7 +157,7 @@
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <activity
-            android:name=".activity.AddBankCardActivity"
+            android:name=".activity.BankCardAddActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
@@ -169,6 +165,17 @@
             android:name=".activity.FindPasswdActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <activity
+            android:name=".activity.InvestPeopleActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <meta-data android:name="AA_DB_NAME"
+            android:value="invest_people"/>
+
+        <meta-data android:name="AA_DB_VERSION"
+            android:value="1"/>
 
         <service android:name=".service.NetworkStateService">
 
