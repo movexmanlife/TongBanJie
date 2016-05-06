@@ -1,18 +1,13 @@
 package com.robot.tongbanjie.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.robot.tongbanjie.R;
-import com.robot.tongbanjie.activity.NewerActivity;
-import com.robot.tongbanjie.entity.InvestPeople;
 import com.robot.tongbanjie.entity.InvestPeople;
 
 import java.text.DecimalFormat;

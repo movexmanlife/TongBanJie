@@ -14,7 +14,9 @@ import com.robot.tongbanjie.widget.TitleBarView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-
+/**
+ * T码
+ */
 public class MyTCodeActivity extends BaseActivity implements OnClickListener {
 	private static final String TAG = MyTCodeActivity.class.getSimpleName();
 	@Bind(R.id.titlebar)

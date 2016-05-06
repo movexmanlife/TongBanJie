@@ -15,7 +15,9 @@ import com.robot.tongbanjie.widget.TitleBarView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-
+/**
+ * 修改交易密码
+ */
 public class TradePwdModifyActivity extends BaseActivity implements OnClickListener {
     private static final String TAG = TradePwdModifyActivity.class.getSimpleName();
     @Bind(R.id.titlebar)

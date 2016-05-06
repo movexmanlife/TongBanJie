@@ -21,9 +21,11 @@ import com.robot.tongbanjie.widget.TitleBarView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-
-public class NewerActivity extends BaseActivity implements OnClickListener {
-    private static final String TAG = NewerActivity.class.getSimpleName();
+/**
+ * 新手专享
+ */
+public class NewhandActivity extends BaseActivity implements OnClickListener {
+    private static final String TAG = NewhandActivity.class.getSimpleName();
     private static final String TITLE_IMG_TAG_DOWN = "down";
     private static final String TITLE_IMG_TAG_UP = "up";
     @Bind(R.id.titlebar)
@@ -37,7 +39,7 @@ public class NewerActivity extends BaseActivity implements OnClickListener {
     private boolean isFilterAniming;
 
     public static void start(Context context) {
-        Intent intent = new Intent(context, NewerActivity.class);
+        Intent intent = new Intent(context, NewhandActivity.class);
         context.startActivity(intent);
     }
 

@@ -23,7 +23,9 @@ import com.robot.tongbanjie.widget.TitleBarView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-
+/**
+ * 账户余额
+ */
 public class MyBalanceActivity extends BaseActivity implements OnClickListener {
     private static final String TAG = MyBalanceActivity.class.getSimpleName();
     @Bind(R.id.titlebar)

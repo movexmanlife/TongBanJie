@@ -19,7 +19,9 @@ import com.robot.tongbanjie.widget.TitleBarView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-
+/**
+ * 手势密码锁定
+ */
 public class LockPatternGuideActivity extends BaseActivity implements OnClickListener {
 	private static final String TAG = LockPatternGuideActivity.class.getSimpleName();
 	@Bind(R.id.titlebar)

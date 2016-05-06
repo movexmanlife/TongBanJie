@@ -21,7 +21,9 @@ import com.robot.tongbanjie.widget.TitleBarView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-
+/**
+ * 客服服务
+ */
 public class CustomServiceActivity extends BaseActivity implements OnClickListener {
 	private static final String TAG = CustomServiceActivity.class.getSimpleName();
 	@Bind(R.id.titlebar)

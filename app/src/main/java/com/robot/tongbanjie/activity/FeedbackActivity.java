@@ -19,7 +19,9 @@ import com.robot.tongbanjie.widget.TitleBarView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-
+/**
+ * 意见反馈
+ */
 public class FeedbackActivity extends BaseActivity implements OnClickListener {
 	private static final String TAG = FeedbackActivity.class.getSimpleName();
 	@Bind(R.id.titlebar)

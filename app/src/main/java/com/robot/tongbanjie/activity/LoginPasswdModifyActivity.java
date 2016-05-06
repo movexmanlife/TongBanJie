@@ -20,7 +20,9 @@ import com.robot.tongbanjie.widget.TitleBarView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-
+/**
+ * 修改登录密码
+ */
 public class LoginPasswdModifyActivity extends BaseActivity implements OnClickListener {
 	private static final String TAG = LoginPasswdModifyActivity.class.getSimpleName();
 	@Bind(R.id.titlebar)

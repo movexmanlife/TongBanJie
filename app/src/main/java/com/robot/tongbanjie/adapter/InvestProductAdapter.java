@@ -11,10 +11,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.robot.tongbanjie.R;
-import com.robot.tongbanjie.activity.NewerActivity;
+import com.robot.tongbanjie.activity.NewhandActivity;
 import com.robot.tongbanjie.entity.InvestProduct;
-import com.robot.tongbanjie.entity.PrimeProduct;
-import com.robot.tongbanjie.util.NetworkUtils;
 
 import java.util.List;
 
@@ -77,7 +75,7 @@ public class InvestProductAdapter extends RecyclerView.Adapter<RecyclerView.View
             productViewHolder.root.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(mContext, NewerActivity.class);
+                    Intent intent = new Intent(mContext, NewhandActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     mContext.startActivity(intent);
                 }

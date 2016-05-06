@@ -21,7 +21,9 @@ import com.stone.verticalslide.DragLayout;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-
+/**
+ * 产品详情页面
+ */
 public class DetailProductActivity extends BaseActivity implements OnClickListener {
     private static final String TAG = DetailProductActivity.class.getSimpleName();
 

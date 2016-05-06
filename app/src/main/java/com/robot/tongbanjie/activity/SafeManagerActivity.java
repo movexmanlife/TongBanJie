@@ -14,7 +14,9 @@ import com.robot.tongbanjie.widget.TitleBarView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-
+/**
+ * 安全中心
+ */
 public class SafeManagerActivity extends BaseActivity implements OnClickListener {
 	private static final String TAG = SafeManagerActivity.class.getSimpleName();
 	@Bind(R.id.titlebar)

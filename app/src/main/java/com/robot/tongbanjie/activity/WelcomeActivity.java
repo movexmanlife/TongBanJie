@@ -16,7 +16,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
- * 引导页
+ * 欢迎页
  */
 public class WelcomeActivity extends BaseActivity implements OnClickListener {
     private static final String TAG = WelcomeActivity.class.getSimpleName();

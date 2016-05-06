@@ -79,7 +79,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".activity.QuestionActivity"
+            android:name=".activity.FrequentQuestionActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
@@ -107,7 +107,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".activity.NewerActivity"
+            android:name=".activity.NewhandActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity

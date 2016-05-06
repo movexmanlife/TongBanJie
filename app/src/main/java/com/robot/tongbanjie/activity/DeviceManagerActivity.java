@@ -26,7 +26,9 @@ import java.util.Date;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-
+/**
+ * 设备管理
+ */
 public class DeviceManagerActivity extends BaseActivity implements OnClickListener {
     private static final String TAG = DeviceManagerActivity.class.getSimpleName();
     @Bind(R.id.titlebar)

@@ -24,7 +24,7 @@ import butterknife.ButterKnife;
 
 /**
  *
- * 设置界面
+ * 编辑个人资料
  */
 public class UserInfoActivity extends BaseActivity implements OnClickListener {
 	private static final String TAG = UserInfoActivity.class.getSimpleName();
