@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.robot.tongbanjie.R;
@@ -19,6 +20,7 @@ import butterknife.ButterKnife;
 public class InvestPeopleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     public static final int ITEM_TYPE_COMMON = 0;
     public static final int ITEM_TYPE_NETWORK_ERROR = 1;
+    public static final int ITEM_TYPE_LOADING = 2;
     private boolean isShowNetworkErrorTips = false;
 
     private Context mContext;
@@ -35,6 +37,8 @@ public class InvestPeopleAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == ITEM_TYPE_COMMON) {
             return new InvestPeopleViewHolder(mLayoutInflater.inflate(R.layout.list_item_invest_people, parent, false));
+        } else if (viewType == ITEM_TYPE_LOADING) {
+            return new LoadingMoreHolder(mLayoutInflater.inflate(R.layout.view_loading_more, parent, false));
         } else {
             return new NetworkHolder(mLayoutInflater.inflate(R.layout.view_network_unusual, parent, false));
         }
@@ -56,6 +60,9 @@ public class InvestPeopleAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             peopleViewHolder.date.setText(investPeople.date);
             peopleViewHolder.sum.setText(getFormatSum(investPeople.sum));
             peopleViewHolder.phone.setText(investPeople.phone);
+        } else if (holder instanceof LoadingMoreHolder) {
+            LoadingMoreHolder loadingMoreHolder = (LoadingMoreHolder) holder;
+            loadingMoreHolder.progressBar.setIndeterminate(true);
         } else {
             NetworkHolder networkHolder = (NetworkHolder) holder;
         }
@@ -66,9 +73,26 @@ public class InvestPeopleAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         InvestPeople InvestPeople = mDatas.get(position);
         if (InvestPeople.viewType == ITEM_TYPE_NETWORK_ERROR) {
             return ITEM_TYPE_NETWORK_ERROR;
-        } else {
+        } else if (InvestPeople.viewType == ITEM_TYPE_COMMON){
             return ITEM_TYPE_COMMON;
+        } else {
+            return ITEM_TYPE_LOADING;
         }
+    }
+
+    public void showLoadingMore() {
+        InvestPeople investPeople = new InvestPeople();
+        investPeople.viewType = ITEM_TYPE_LOADING;
+        mDatas.add(investPeople);
+        notifyItemInserted(mDatas.size() - 1);
+    }
+
+    /**
+     * 需要在尾部添加数据之前调用
+     */
+    public void hideLoadingMore() {
+        mDatas.remove(mDatas.size() - 1);
+        notifyItemRemoved(mDatas.size());
     }
 
     private String getFormatSum(float sum) {
@@ -91,6 +115,17 @@ public class InvestPeopleAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         TextView date;
         
         InvestPeopleViewHolder(View view) {
+            super(view);
+            ButterKnife.bind(this, view);
+            this.root = view;
+        }
+    }
+
+    public static class LoadingMoreHolder extends RecyclerView.ViewHolder {
+        View root;
+        @Bind(R.id.progressBar)
+        ProgressBar progressBar;
+        LoadingMoreHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
             this.root = view;

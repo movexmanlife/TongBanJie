@@ -86,7 +86,7 @@ public class HelpAndFeedbackActivity extends BaseActivity implements OnClickList
 	public void onClick(View v) {
 		switch (v.getId()) {
 			case R.id.help_feedback_question:
-				QuestionActivity.start(this);
+				FrequentQuestionActivity.start(this);
 				break;
 			case R.id.help_feedback_feedback:
 				FeedbackActivity.start(this);

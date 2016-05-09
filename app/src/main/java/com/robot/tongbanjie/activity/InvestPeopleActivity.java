@@ -8,9 +8,11 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import com.activeandroid.query.Select;
 import com.robot.tongbanjie.R;
+import com.robot.tongbanjie.adapter.EndlessRecyclerOnScrollListener;
 import com.robot.tongbanjie.adapter.InvestPeopleAdapter;
 import com.robot.tongbanjie.entity.InvestPeople;
 import com.robot.tongbanjie.util.NetworkBroadcastReceiverHelper;
@@ -42,6 +44,7 @@ public class InvestPeopleActivity extends BaseActivity {
     private InvestPeopleAdapter mAdapter;
     private List<InvestPeople> mDatas;
     private NetworkBroadcastReceiverHelper mNetworkBroadcastReceiverHelper;
+    private boolean isFirstLoad = true;
 
     public static void start(Context context) {
         Intent intent = new Intent(context, InvestPeopleActivity.class);
@@ -103,17 +106,13 @@ public class InvestPeopleActivity extends BaseActivity {
     }
 
     private void getDbData() {
-        int count = mDatas.size();
-        long indexId = 0;
-        if (count != 0) {
-            InvestPeople investPeople = mDatas.get(count - 1);
-            indexId = investPeople.getId();
-        }
-
-        final List<InvestPeople> list = new Select().from(InvestPeople.class).where("Id > " + indexId).orderBy("Id ASC").execute();
-        if (list != null) {
-            mDatas.addAll(list);
-            mAdapter.notifyDataSetChanged();
+        if (isFirstLoad) {
+            isFirstLoad = false;
+            final List<InvestPeople> list = new Select().from(InvestPeople.class).orderBy("Id ASC").execute();
+            if (list != null) {
+                mDatas.addAll(list);
+                mAdapter.notifyDataSetChanged();
+            }
         }
     }
 
@@ -134,6 +133,30 @@ public class InvestPeopleActivity extends BaseActivity {
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         showNetworkTips();
+        EndlessRecyclerOnScrollListener endlessRecyclerOnScrollListener = new MyListener((LinearLayoutManager)(mRecyclerView.getLayoutManager()), mRecyclerView);
+        mRecyclerView.setOnScrollListener(endlessRecyclerOnScrollListener);
+    }
+
+    private class MyListener extends EndlessRecyclerOnScrollListener {
+        public MyListener(LinearLayoutManager linearLayoutManager, RecyclerView recyclerView) {
+            super(linearLayoutManager, recyclerView);
+        }
+
+        @Override
+        public void onLoadMore(int current_page) {
+            mAdapter.showLoadingMore();
+            mRecyclerView.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    mAdapter.hideLoadingMore();
+
+                    mDatas.add(new InvestPeople("137******77", 100.00f, "2016-05-05 15:33"));
+                    mDatas.add(new InvestPeople("138******81", 1300.00f, "2016-05-07 19:06"));
+                    mAdapter.notifyDataSetChanged();
+                    setLoading(false);
+                }
+            }, 3000);
+        }
     }
 
     @Override
