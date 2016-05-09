@@ -7,12 +7,10 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ExpandableListView;
 import android.widget.FrameLayout;
 import android.widget.RadioButton;
 
 import com.robot.tongbanjie.R;
-import com.robot.tongbanjie.adapter.QuestionAdapter;
 import com.robot.tongbanjie.fragment.BaseFragment;
 import com.robot.tongbanjie.fragment.QuestionCategoryFragment;
 import com.robot.tongbanjie.fragment.QuestionHotFragment;
