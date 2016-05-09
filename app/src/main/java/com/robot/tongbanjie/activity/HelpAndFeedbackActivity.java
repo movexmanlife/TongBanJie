@@ -3,14 +3,10 @@ package com.robot.tongbanjie.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.TypedValue;
 import android.view.View;
 import android.view.View.OnClickListener;
 
 import com.robot.tongbanjie.R;
-import com.robot.tongbanjie.adapter.QuestionAdapter;
-import com.robot.tongbanjie.util.DensityUtils;
-import com.robot.tongbanjie.util.PackageUtils;
 import com.robot.tongbanjie.widget.CommonItem;
 import com.robot.tongbanjie.widget.CommonItem.Type;
 import com.robot.tongbanjie.widget.TitleBarView;
