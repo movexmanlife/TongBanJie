@@ -25,6 +25,8 @@ import com.robot.tongbanjie.widget.BaseTipsView;
 import com.robot.tongbanjie.widget.ShowMemberTipsView;
 import com.robot.tongbanjie.widget.ShowMoreTipsView;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.security.KeyRep;
 
 import butterknife.Bind;
@@ -227,55 +229,41 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         hideFragments(manager, transaction);
-        setNormalBackgrounds();
-        //看着很繁琐吧
+
+        setNormalBackground();
+        setSelectedBackgroud((LinearLayout) v);
 
         if (id == R.id.layout_home) {
-            setSelectedBackgroud((LinearLayout) v);
-            mFragmentCurrentTag = FRAGMENT_TAG_HOME;
-
-            if (mHomeFragment == null) {
-                mHomeFragment = HomeFragment.newInstance();
-                transaction.add(R.id.fragment_container, mHomeFragment, FRAGMENT_TAG_HOME);
-            }
-            transaction.show(mHomeFragment);
+            selectedFragment(transaction, mHomeFragment, HomeFragment.class, FRAGMENT_TAG_HOME);
         } else if (id == R.id.layout_product) {
-            setSelectedBackgroud((LinearLayout) v);
-            mFragmentCurrentTag = FRAGMENT_TAG_PRODUCT;
-
-            if (mProductFragment == null) {
-                mProductFragment = ProductFragment.newInstance();
-                transaction.add(R.id.fragment_container, mProductFragment, FRAGMENT_TAG_PRODUCT);
-            }
-            transaction.show(mProductFragment);
+            selectedFragment(transaction, mProductFragment, ProductFragment.class, FRAGMENT_TAG_PRODUCT);
         } else if (id == R.id.layout_my_assert) {
-            setSelectedBackgroud((LinearLayout) v);
-            mFragmentCurrentTag = FRAGMENT_TAG_MY_ASSERT;
-
-            if (mMyAssertFragment == null) {
-                mMyAssertFragment = MyAssertFragment.newInstance();
-                transaction.add(R.id.fragment_container, mMyAssertFragment, FRAGMENT_TAG_MY_ASSERT);
-            }
-            transaction.show(mMyAssertFragment);
+            selectedFragment(transaction, mMyAssertFragment, MyAssertFragment.class, FRAGMENT_TAG_MY_ASSERT);
         } else if (id == R.id.layout_more) {
-            setSelectedBackgroud((LinearLayout)v);
-            mFragmentCurrentTag = FRAGMENT_TAG_MORE;
-
-            if (mMoreFragment == null) {
-                mMoreFragment = MoreFragment.newInstance();
-                transaction.add(R.id.fragment_container, mMoreFragment, FRAGMENT_TAG_MORE);
-            }
-            transaction.show(mMoreFragment);
+            selectedFragment(transaction, mMoreFragment, MoreFragment.class, FRAGMENT_TAG_MORE);
         }
-
         transaction.commit();
+    }
+
+    private void selectedFragment(FragmentTransaction transaction, Fragment fragment, Class<?> clazz, String tag) {
+        mFragmentCurrentTag = tag;
+        if (fragment == null) {
+            try {
+                Method newInstanceMethod = clazz.getDeclaredMethod("newInstance");;
+                fragment = (Fragment) newInstanceMethod.invoke(null);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+            transaction.add(R.id.fragment_container, fragment, tag);
+        }
+        transaction.show(fragment);
     }
 
 
     /**
      * 设置底部背景为正常状态
      */
-    private void setNormalBackgrounds() {
+    private void setNormalBackground() {
         for (int i = 0; i < mLayouts.length; i++) {
             setTabBackgroud(mLayouts[i], NORMAL_BACKGROUD[i], R.color.tab_txt_normal_color);
         }
@@ -311,17 +299,25 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         }
     }
 
+    /**
+     * 恢复fragment
+     */
     private void restoreFragments() {
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        mHomeFragment = (HomeFragment) manager.findFragmentByTag(FRAGMENT_TAG_HOME);
-        transaction.hide(mHomeFragment);
-        mMyAssertFragment = (MyAssertFragment) manager.findFragmentByTag(FRAGMENT_TAG_MY_ASSERT);
-        transaction.hide(mMyAssertFragment);
-        mProductFragment = (ProductFragment) manager.findFragmentByTag(FRAGMENT_TAG_PRODUCT);
-        transaction.hide(mProductFragment);
-        mMoreFragment = (MoreFragment) manager.findFragmentByTag(FRAGMENT_TAG_MORE);
-        transaction.hide(mMoreFragment);
+        for (int i = 0; i < mFragmentTags.length; i++) {
+            Fragment fragment = manager.findFragmentByTag(mFragmentTags[i]);
+            if (fragment instanceof HomeFragment) {
+                mHomeFragment = (HomeFragment)fragment;
+            } else if (fragment instanceof ProductFragment) {
+                mProductFragment = (ProductFragment)fragment;
+            } else if (fragment instanceof MyAssertFragment) {
+                mMyAssertFragment = (MyAssertFragment)fragment;
+            } else if (fragment instanceof MoreFragment) {
+                mMoreFragment = (MoreFragment)fragment;
+            }
+            transaction.hide(fragment);
+        }
         transaction.commit();
     }
 
