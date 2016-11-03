@@ -23,6 +23,7 @@
         android:layout_height="57dp"
         android:layout_alignParentBottom="true"
         android:background="@color/white"
+        android:descendantFocusability="beforeDescendants"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -39,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="5dp"
-                android:src="@drawable/hot_product_commend_normal" />
+                android:src="@drawable/home_tab_item_sel" />
 
             <TextView
                 android:id="@+id/txt_home"
@@ -50,7 +51,7 @@
                 android:paddingBottom="5dip"
                 android:scaleType="matrix"
                 android:text="首页"
-                android:textColor="#000000"
+                android:textColor="@color/tab_txt_color_sel"
                 android:textSize="12sp" />
         </LinearLayout>
 
@@ -59,6 +60,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:descendantFocusability="beforeDescendants"
             android:orientation="vertical">
 
             <ImageView
@@ -67,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="5dp"
-                android:src="@drawable/finacing_product_normal" />
+                android:src="@drawable/product_tab_item_sel" />
 
             <TextView
                 android:id="@+id/txt_product"
@@ -78,7 +80,7 @@
                 android:paddingBottom="5dip"
                 android:scaleType="matrix"
                 android:text="投资"
-                android:textColor="#000000"
+                android:textColor="@color/tab_txt_color_sel"
                 android:textSize="12sp" />
         </LinearLayout>
 
@@ -87,6 +89,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:descendantFocusability="beforeDescendants"
             android:orientation="vertical">
 
             <ImageView
@@ -95,7 +98,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="5dp"
-                android:src="@drawable/my_assets_normal" />
+                android:src="@drawable/myassets_tab_item_sel" />
 
             <TextView
                 android:id="@+id/txt_my_assert"
@@ -106,7 +109,7 @@
                 android:paddingBottom="5dip"
                 android:scaleType="matrix"
                 android:text="财富"
-                android:textColor="#000000"
+                android:textColor="@color/tab_txt_color_sel"
                 android:textSize="12sp" />
         </LinearLayout>
 
@@ -115,6 +118,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:descendantFocusability="beforeDescendants"
             android:orientation="vertical">
 
             <ImageView
@@ -123,7 +127,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="5dp"
-                android:src="@drawable/more_normal" />
+                android:src="@drawable/more_tab_item_sel" />
 
             <TextView
                 android:id="@+id/txt_more"
@@ -134,7 +138,7 @@
                 android:paddingBottom="5dip"
                 android:scaleType="matrix"
                 android:text="更多"
-                android:textColor="#000000"
+                android:textColor="@color/tab_txt_color_sel"
                 android:textSize="12sp" />
         </LinearLayout>
 
